@@ -40,6 +40,16 @@ def check_win_circle(playground):
         return True
     else:
         return False
+    
+
+def announce_draw(turn_count, check_win_circle, check_win_cross):
+    
+    if turn_count == 10 and check_win_cross != True and check_win_circle != True:
+        print("It's a draw!")
+        return True
+    
+    return False
+
   
 
 def show_playground(playground):
@@ -50,6 +60,7 @@ def show_playground(playground):
         
 
 def replace_symbol(choice, playground, turn):
+
     match turn:
         case "Circle":
             match choice:
@@ -78,7 +89,7 @@ def replace_symbol(choice, playground, turn):
                     playground[0][1] = "O"
                     return playground
                 case 9:
-                    playground[0][0] = "O"
+                    playground[0][2] = "O"
                     return playground
         case "Cross":
             match choice:
@@ -107,7 +118,7 @@ def replace_symbol(choice, playground, turn):
                     playground[0][1] = "X"
                     return playground
                 case 9:
-                    playground[0][0] = "X"
+                    playground[0][2] = "X"
                     return playground
 
 
@@ -130,6 +141,7 @@ def turn_define(turn_count):
 def make_your_choice():
   
     choice_check = True
+    show_playground(playground)
     while choice_check:
         try:
             choice = int(input("Specify where you want to put your symbol:\n"))
@@ -186,16 +198,17 @@ playground = [[7, 8, 9],
               [1, 2, 3]]
 
 
-
-
 start = True # Starts the main loop with the game
 turn_count = 1 # Tracks number of turns
-while start and turn_count < 10 and check_win_cross(playground) != True and check_win_circle(playground) != True:
-    
+while start and turn_count < 11 and check_win_cross(playground) != True and check_win_circle(playground) != True:
+
     print(f"It's turn number {turn_count}")
     whose_turn_is_it(turn_count)
     replace_symbol(make_your_choice(), playground, turn_define(turn_count))
     show_playground(playground)
     check_win_cross(playground)
     check_win_circle(playground)
+    announce_draw(turn_count, check_win_circle(playground), check_win_cross(playground))
     turn_count += 1 
+
+    
