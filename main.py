@@ -11,12 +11,12 @@ def check_win_cross(playground):
         return True
     elif playground[0][2] == "X" and playground[1][2] == "X" and playground[2][2] == "X":
         return True
-    elif playground[0][2] == "X" and playground[2][1] == "X" and playground[2][2] == "X":
-        return True
     elif playground[0][0] == "X" and playground[1][1] == "X" and playground[2][2] == "X":
         return True
     elif playground[0][2] == "X" and playground[1][1] == "X" and playground[2][0] == "X":
         return True
+    else:
+        return False
   
   
 def check_win_circle(playground):
@@ -31,8 +31,6 @@ def check_win_circle(playground):
     elif playground[0][1] == "O" and playground[1][1] == "O" and playground[2][1] == "O":
         return True
     elif playground[0][2] == "O" and playground[1][2] == "O" and playground[2][2] == "O":
-        return True
-    elif playground[0][2] == "O" and playground[2][1] == "O" and playground[2][2] == "O":
         return True
     elif playground[0][0] == "O" and playground[1][1] == "O" and playground[2][2] == "O":
         return True
@@ -200,15 +198,10 @@ playground = [[7, 8, 9],
 
 start = True # Starts the main loop with the game
 turn_count = 1 # Tracks number of turns
-while start and turn_count < 11 and check_win_cross(playground) != True and check_win_circle(playground) != True:
-
+while start and turn_count < 11 and check_win_cross(playground) != True and check_win_circle(playground) != True and announce_draw(turn_count, check_win_circle(playground), check_win_cross(playground)) == False:
+    
     print(f"It's turn number {turn_count}")
     whose_turn_is_it(turn_count)
     replace_symbol(make_your_choice(), playground, turn_define(turn_count))
     show_playground(playground)
-    check_win_cross(playground)
-    check_win_circle(playground)
-    announce_draw(turn_count, check_win_circle(playground), check_win_cross(playground))
     turn_count += 1 
-
-    
