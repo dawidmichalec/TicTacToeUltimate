@@ -41,12 +41,13 @@ def check_win_circle(playground):
     else:
         return False
   
+
 def show_playground(playground):
   
-  ## Function displays how the playground looks like
+  # Function displays how the playground looks like
     for i in playground:
         print(i)
-
+        
 
 def replace_symbol(choice, playground, turn):
     match turn:
@@ -116,6 +117,7 @@ def whose_turn_is_it(turn_count):
     else:
         print("It's Cross turn.")
 
+
 def turn_define(turn_count):
     if turn_count in [1, 3 ,5, 7, 9]:
         turn = "Circle"
@@ -123,6 +125,7 @@ def turn_define(turn_count):
         turn = "Cross"
 
     return turn 
+
 
 def make_your_choice():
   
@@ -135,6 +138,42 @@ def make_your_choice():
         else:
             if choice > 9 or choice < 1:
                 print("Number must be between 1 and 9! Please enter a valid value!")
+                choice_check
+            elif choice == 1 and (type(playground[2][0]) == type("str")):
+                print("This number has already been taken. Please choose another place:")
+                show_playground(playground)
+                choice_check
+            elif choice == 2 and (type(playground[2][1]) == type("str")):
+                print("This number has already been taken. Please choose another place:")
+                show_playground(playground)
+                choice_check
+            elif choice == 3 and (type(playground[2][2]) == type("str")):
+                print("This number has already been taken. Please choose another place:")
+                show_playground(playground)
+                choice_check
+            elif choice == 4 and (type(playground[1][0]) == type("str")):
+                print("This number has already been taken. Please choose another place:")
+                show_playground(playground)
+                choice_check
+            elif choice == 5 and (type(playground[1][1]) == type("str")):
+                print("This number has already been taken. Please choose another place:")
+                show_playground(playground)
+                choice_check
+            elif choice == 6 and (type(playground[1][2]) == type("str")):
+                print("This number has already been taken. Please choose another place:")
+                show_playground(playground)
+                choice_check
+            elif choice == 7 and (type(playground[0][0]) == type("str")):
+                print("This number has already been taken. Please choose another place:")
+                show_playground(playground)
+                choice_check
+            elif choice == 8 and (type(playground[0][1]) == type("str")):
+                print("This number has already been taken. Please choose another place:")
+                show_playground(playground)
+                choice_check
+            elif choice == 9 and (type(playground[0][2]) == type("str")):
+                print("This number has already been taken. Please choose another place:")
+                show_playground(playground)
                 choice_check
             else:
                 choice_check = False
@@ -149,8 +188,8 @@ playground = [[7, 8, 9],
 
 
 
-start = True ##Starts the main loop with the game
-turn_count = 1 ##Tracks number of turns
+start = True # Starts the main loop with the game
+turn_count = 1 # Tracks number of turns
 while start and turn_count < 10 and check_win_cross(playground) != True and check_win_circle(playground) != True:
     
     print(f"It's turn number {turn_count}")
