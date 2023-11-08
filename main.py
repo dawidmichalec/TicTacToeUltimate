@@ -226,9 +226,6 @@ def make_your_choice():
     return  choice
 
 
-
-
-
 start = True  # Starts the main loop with the game
 number_of_rounds = 0
 how_many_rounds = how_many_rounds()
