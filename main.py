@@ -43,14 +43,56 @@ def check_win_circle(playground):
 def announce_draw(turn_count, check_win_circle, check_win_cross):
     
     if turn_count == 10 and check_win_cross is not True and check_win_circle is not True:
-        print("It's a draw!")
         return True
     
     return False
 
 
-def score(check_win_cross, check_win_circle, announce_draw):
-    pass
+def score(cross_wins, circle_wins):  # Displays score
+
+    print(f"Current score\n\nCircle Player: {circle_wins}\nCross Player: {cross_wins}")
+
+
+def is_match_over(how_many_rounds, cross_wins, circle_wins):
+
+    if how_many_rounds == 1 and circle_wins == 1 and cross_wins == 1:
+        print(f"Match ended with a draw!\n\nFinal score:\n"
+              f"Circle Player: {circle_wins}\nCross Player: {cross_wins}")
+        return True
+    elif how_many_rounds == 3 and circle_wins == 2 and cross_wins == 2:
+        print(f"Match ended with a draw!\n\nFinal score:\n"
+              f"Circle Player: {circle_wins}\nCross Player: {cross_wins}")
+        return True
+    elif how_many_rounds == 6 and circle_wins == 3 and cross_wins == 3:
+        print(f"Match ended with a draw!\n\nFinal score:\n"
+              f"Circle Player: {circle_wins}\nCross Player: {cross_wins}")
+        return True
+    elif how_many_rounds == 1 and cross_wins == 1:
+        print(f"Cross Player won the match!\n\nFinal score:\n"
+              f"Circle Player: {circle_wins}\nCross Player: {cross_wins}")
+        return True
+    elif how_many_rounds == 1 and circle_wins == 1:
+        print(f"Circle Player won the match!\n\nFinal score:\n"
+              f"Circle Player: {circle_wins}\nCross Player: {cross_wins}")
+        return True
+    elif how_many_rounds == 3 and cross_wins == 2:
+        print(f"Cross Player won the match!\n\nFinal score:\n"
+              f"Circle Player: {circle_wins}\nCross Player: {cross_wins}")
+        return True
+    elif how_many_rounds == 3 and circle_wins == 2:
+        print(f"Circle Player won the match!\n\nFinal score:\n"
+              f"Circle Player: {circle_wins}\nCross Player: {cross_wins}")
+        return True
+    elif how_many_rounds == 6 and cross_wins == 3:
+        print(f"Cross Player won the match!\n\nFinal score:\n"
+              f"Circle Player: {circle_wins}\nCross Player: {cross_wins}")
+        return True
+    elif how_many_rounds == 6 and circle_wins == 3:
+        print(f"Circle Player won the match!\n\nFinal score:\n"
+              f"Circle Player: {circle_wins}\nCross Player: {cross_wins}")
+        return True
+    else:
+        return False
 
 
 def how_many_rounds():  # Function that allows the user to specify the number of rounds they want to play.
@@ -226,15 +268,19 @@ def make_your_choice():
     return  choice
 
 
-start = True  # Starts the main loop with the game
 number_of_rounds = 0
-how_many_rounds = how_many_rounds()
-while start and number_of_rounds < how_many_rounds:
+how_many_rounds = how_many_rounds()  # Determines up to how many wins the match will be played.
+circle_wins = 0
+cross_wins = 0
+start = True  # Starts the main loop with the game
+# Main game loop
+while start and number_of_rounds < how_many_rounds and is_match_over(how_many_rounds, cross_wins, circle_wins) is False:
     playground = [[7, 8, 9],
                   [4, 5, 6],
                   [1, 2, 3]]
     turn_count = 1
     print(f"Round {(number_of_rounds+1)}!")
+    # Round loop
     while turn_count < 11 and check_win_cross(playground) is not True and check_win_circle(playground) is not True and announce_draw(turn_count, check_win_circle(playground), check_win_cross(playground)) is False:
         print(f"It's turn number {turn_count}")
         whose_turn_is_it(turn_count)
@@ -242,4 +288,19 @@ while start and number_of_rounds < how_many_rounds:
         show_playground(playground)
         turn_count += 1
 
+    if check_win_cross(playground) is True:
+        cross_wins += 1
+        print(f"Cross Player won round {number_of_rounds+1}!")
+
+    if check_win_circle(playground) is True:
+        circle_wins += 1
+        print(f"Circle Player won round {number_of_rounds+1}!")
+
+    if announce_draw(turn_count, check_win_circle(playground), check_win_cross(playground)) is True:
+        cross_wins += 1
+        circle_wins += 1
+        print("It's a draw!")
+
+    is_match_over(how_many_rounds, cross_wins, circle_wins)
+    score(cross_wins, circle_wins)
     number_of_rounds += 1
