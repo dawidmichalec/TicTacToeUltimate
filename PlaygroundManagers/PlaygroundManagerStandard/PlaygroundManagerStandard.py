@@ -12,6 +12,12 @@ class Playground:
         for i in self.playground:
             print(i)
 
+    def reset_playground(self):
+
+        self.playground = [[7, 8, 9],
+                           [4, 5, 6],
+                           [1, 2, 3]]
+
     def make_your_choice(self):
 
         choice_check = True
@@ -64,83 +70,67 @@ class Playground:
                 else:
                     choice_check = False
 
-    def replace_symbol(self, choice, playground, turn):
+        return choice
+
+    def replace_symbol(self, choice, turn):
 
         match turn:
             case "Circle":
                 match choice:
                     case 1:
-                        playground[2][0] = "O"
-                        self.playground = playground
+                        self.playground[2][0] = "O"
                         return self.playground
                     case 2:
-                        playground[2][1] = "O"
-                        self.playground = playground
+                        self.playground[2][1] = "O"
                         return self.playground
                     case 3:
-                        playground[2][2] = "O"
-                        self.playground = playground
+                        self.playground[2][2] = "O"
                         return self.playground
                     case 4:
-                        playground[1][0] = "O"
-                        self.playground = playground
+                        self.playground[1][0] = "O"
                         return self.playground
                     case 5:
-                        playground[1][1] = "O"
-                        self.playground = playground
+                        self.playground[1][1] = "O"
                         return self.playground
                     case 6:
-                        playground[1][2] = "O"
-                        self.playground = playground
+                        self.playground[1][2] = "O"
                         return self.playground
                     case 7:
-                        playground[0][0] = "O"
-                        self.playground = playground
+                        self.playground[0][0] = "O"
                         return self.playground
                     case 8:
-                        playground[0][1] = "O"
-                        self.playground = playground
+                        self.playground[0][1] = "O"
                         return self.playground
                     case 9:
-                        playground[0][2] = "O"
-                        self.playground = playground
+                        self.playground[0][2] = "O"
                         return self.playground
             case "Cross":
                 match choice:
                     case 1:
-                        playground[2][0] = "X"
-                        self.playground = playground
+                        self.playground[2][0] = "X"
                         return self.playground
                     case 2:
-                        playground[2][1] = "X"
-                        self.playground = playground
+                        self.playground[2][1] = "X"
                         return self.playground
                     case 3:
-                        playground[2][2] = "X"
-                        self.playground = playground
+                        self.playground[2][2] = "X"
                         return self.playground
                     case 4:
-                        playground[1][0] = "X"
-                        self.playground = playground
+                        self.playground[1][0] = "X"
                         return self.playground
                     case 5:
-                        playground[1][1] = "X"
-                        self.playground = playground
+                        self.playground[1][1] = "X"
+                        return self.playground
                     case 6:
-                        playground[1][2] = "X"
-                        self.playground = playground
+                        self.playground[1][2] = "X"
                         return self.playground
                     case 7:
-                        playground[0][0] = "X"
-                        self.playground = playground
+                        self.playground[0][0] = "X"
                         return self.playground
                     case 8:
-                        playground[0][1] = "X"
-                        self.playground = playground
+                        self.playground[0][1] = "X"
                         return self.playground
                     case 9:
-                        playground[0][2] = "X"
-                        self.playground = playground
+                        self.playground[0][2] = "X"
                         return self.playground
-        return choice
             
