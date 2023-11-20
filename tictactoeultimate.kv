@@ -1,0 +1,451 @@
+WindowManager:
+    MainMenu:
+    Play:
+    StandardFlow:
+    UltimateFlow:
+    RoundChoiceThreeDim:
+    RoundChoiceFourDim:
+    RoundChoiceFiveDim:
+    SettingsScreen:
+    ScreenSize:
+
+<MainMenu>:
+    name: 'main_menu'
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source:'/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/MAIN SCREEN GRAPHIC NO ANIMATION ON BOARDS ON SIDES.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        ButtonMenu:
+            text: 'PLAY'
+            pos_hint: {'center_x': .5, 'center_y': .42}
+            on_release:
+                app.root.current = "play"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: 'SETTINGS'
+            pos_hint: {'center_x': .5, 'center_y': .27}
+            on_release:
+                app.root.current = "settings"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: 'ABOUT'
+            pos_hint: {'center_x': .5, 'center_y': .12}
+
+
+<Play>:
+    name: "play"
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        Label:
+            text: 'CHOOSE VERSION OF THE GAME'
+            bold: True
+            font_size: 32
+            color: (0, 0, 0, 1)
+            pos_hint: {'center_x': .5, 'center_y': .85}
+
+        ButtonMenu:
+            text: 'STANDARD'
+            pos_hint: {'center_x': .5, 'center_y': .65}
+            on_release:
+                app.root.current = "standard_flow"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: 'ULTIMATE'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release:
+                app.root.current = "ultimate_flow"
+                root.manager.transition.direction = "left"
+
+        NavigationButton:
+            text: "BACK"
+            on_release:
+                app.root.current = "main_menu"
+                root.manager.transition.direction = "right"
+
+
+<StandardFlow>:
+    name: "standard_flow"
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        Label:
+            text: 'CHOOSE THE SIZE OF THE BOARD'
+            bold: True
+            font_size: 32
+            color: (0, 0, 0, 1)
+            pos_hint: {'center_x': .5, 'center_y': .85}
+
+        ButtonMenu:
+            text: '3 x 3'
+            pos_hint: {'center_x': .5, 'center_y': .65}
+            on_release:
+                app.root.current = "round_choice_three_dim"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: '4 x 4'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release:
+                app.root.current = "round_choice_four_dim"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: '5 x 5'
+            pos_hint: {'center_x': .5, 'center_y': .35}
+            on_release:
+                app.root.current = "round_choice_five_dim"
+                root.manager.transition.direction = "left"
+
+        NavigationButton:
+            text: "BACK"
+            on_release:
+                app.root.current = "play"
+                root.manager.transition.direction = "right"
+
+
+
+<UltimateFlow>:
+    name: "ultimate_flow"
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        Label:
+            text: 'TO BE ANNOUNCED'
+            bold: True
+            font_size: 32
+            color: (0, 0, 0, 1)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+
+        NavigationButton:
+            text: "BACK"
+            on_release:
+                app.root.current = "play"
+                root.manager.transition.direction = "right"
+
+
+
+<RoundChoiceThreeDim>:
+    name: "round_choice_three_dim"
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        Label:
+            text: 'UP TO HOW MANY WON ROUNDS\nWOULD YOU LIKE TO PLAY?'
+            halign: 'center'
+            bold: True
+            font_size: 32
+            color: (0, 0, 0, 1)
+            pos_hint: {'center_x': .5, 'center_y': .85}
+
+        ButtonMenu:
+            text: '1 ROUND'
+            pos_hint: {'center_x': .5, 'center_y': .65}
+            on_release:
+                app.root.current = "main_game_three_dim"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: '2 ROUNDS'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release:
+                app.root.current = "main_game_three_dim"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: '3 ROUNDS'
+            pos_hint: {'center_x': .5, 'center_y': .35}
+            on_release:
+                app.root.current = "main_game_three_dim"
+                root.manager.transition.direction = "left"
+
+        NavigationButton:
+            text: "BACK"
+            on_release:
+                app.root.current = "standard_flow"
+                root.manager.transition.direction = "right"
+
+
+
+<RoundChoiceFourDim>:
+    name: "round_choice_four_dim"
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        Label:
+            text: 'UP TO HOW MANY WON ROUNDS\nWOULD YOU LIKE TO PLAY?'
+            halign: 'center'
+            bold: True
+            font_size: 32
+            color: (0, 0, 0, 1)
+            pos_hint: {'center_x': .5, 'center_y': .85}
+
+        ButtonMenu:
+            text: '1 ROUND'
+            pos_hint: {'center_x': .5, 'center_y': .65}
+            on_release:
+                app.root.current = "main_game_four_dim"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: '2 ROUNDS'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release:
+                app.root.current = "main_game_four_dim"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: '3 ROUNDS'
+            pos_hint: {'center_x': .5, 'center_y': .35}
+            on_release:
+                app.root.current = "main_game_four_dim"
+                root.manager.transition.direction = "left"
+
+        NavigationButton:
+            text: "BACK"
+            on_release:
+                app.root.current = "standard_flow"
+                root.manager.transition.direction = "right"
+
+
+<RoundChoiceFiveDim>:
+    name: "round_choice_five_dim"
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        Label:
+            text: 'UP TO HOW MANY WON ROUNDS\nWOULD YOU LIKE TO PLAY?'
+            halign: 'center'
+            bold: True
+            font_size: 32
+            color: (0, 0, 0, 1)
+            pos_hint: {'center_x': .5, 'center_y': .85}
+
+        ButtonMenu:
+            text: '1 ROUND'
+            pos_hint: {'center_x': .5, 'center_y': .65}
+            on_release:
+                app.root.current = "main_game_five_dim"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: '2 ROUNDS'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release:
+                app.root.current = "main_game_five_dim"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: '3 ROUNDS'
+            pos_hint: {'center_x': .5, 'center_y': .35}
+            on_release:
+                app.root.current = "main_game_five_dim"
+                root.manager.transition.direction = "left"
+
+        NavigationButton:
+            text: "BACK"
+            on_release:
+                app.root.current = "standard_flow"
+                root.manager.transition.direction = "right"
+
+
+<SettingsScreen>:
+    name: "settings"
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        Label:
+            text: 'SETTINGS'
+            bold: True
+            font_size: 40.9
+            color: (0, 0, 0, 1)
+            pos_hint: {'center_x': .5, 'center_y': .85}
+
+        ButtonMenu:
+            id: sound_button
+            on_release: root.turn_the_sound_off_on()
+            text: 'SOUND ON'
+            pos_hint: {'center_x': .5, 'center_y': .65}
+
+        ButtonMenu:
+            text: 'SCREEN SIZE'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release:
+                app.root.current = "screen_size"
+                root.manager.transition.direction = "left"
+
+        NavigationButton:
+            text: "BACK"
+            on_release:
+                app.root.current = "main_menu"
+                root.manager.transition.direction = "right"
+
+
+
+
+<ScreenSize>:
+    name: "screen_size"
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        Label:
+            text: 'SCREEN SIZE SETTINGS'
+            bold: True
+            font_size: 40.9
+            color: (0, 0, 0, 1)
+            pos_hint: {'center_x': .5, 'center_y': .85}
+
+        ButtonMenu:
+            text: '1920 x 1020'
+            pos_hint: {'center_x': .5, 'center_y': .65}
+
+        ButtonMenu:
+            text: '1280 x 720'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+
+        ButtonMenu:
+            text: 'RETURN TO MAIN MENU'
+            pos_hint: {'center_x': .5, 'center_y': .35}
+            on_release:
+                app.root.current = "main_menu"
+                root.manager.transition.direction = "right"
+
+        NavigationButton:
+            text: "BACK"
+            on_release:
+                app.root.current = "settings"
+                root.manager.transition.direction = "right"
+
+
+
+
+<ButtonMenu>
+    background_color: 0, 0, 0, 0
+    background_normal: ''
+    size_hint: 0.3, 0.11
+    font_size: 32
+    font_name: 'Roboto'
+    bold: True
+    canvas.before:
+        Color:
+            rgba: self.background
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [28]
+        Color:
+            rgba: (0, 0, 0, 1)  # separate color for line border
+        Line:
+            rounded_rectangle: (self.pos[0], self.pos[1], self.size[0], self.size[1], 28)
+            width: 2
+
+
+<NavigationButton>
+    background_color: 0, 0, 0, 0
+    background_normal: ''
+    size_hint: 0.07, 0.11
+    pos_hint: {'center_x': .25, 'center_y': .22}
+    font_size: 26
+    font_name: 'Roboto'
+    bold: True
+    canvas.before:
+        Color:
+            rgba: self.background
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [28]
+        Color:
+            rgba: (0, 0, 0, 1)  # separate color for line border
+        Line:
+            rounded_rectangle: (self.pos[0], self.pos[1], self.size[0], self.size[1], 28)
+            width: 2
+
+
+
+
+
+
