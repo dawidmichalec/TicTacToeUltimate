@@ -17,7 +17,7 @@ WindowManager:
         size: 1280, 720
 
         Image:
-            source:'/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/MAIN SCREEN GRAPHIC NO ANIMATION ON BOARDS ON SIDES.gif'
+            source:'/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/MAIN SCREEN GRAPHIC NO ANIMATION ON BOARDS ON SIDES.gif'
             anim_delay: 0.02
             allow_stretch: True
             keep_ratio: False
@@ -50,7 +50,7 @@ WindowManager:
         size: 1280, 720
 
         Image:
-            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
             anim_delay: 0.02
             allow_stretch: True
             keep_ratio: False
@@ -92,7 +92,7 @@ WindowManager:
         size: 1280, 720
 
         Image:
-            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
             anim_delay: 0.02
             allow_stretch: True
             keep_ratio: False
@@ -142,7 +142,7 @@ WindowManager:
         size: 1280, 720
 
         Image:
-            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
             anim_delay: 0.02
             allow_stretch: True
             keep_ratio: False
@@ -171,7 +171,7 @@ WindowManager:
         size: 1280, 720
 
         Image:
-            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
             anim_delay: 0.02
             allow_stretch: True
             keep_ratio: False
@@ -222,7 +222,7 @@ WindowManager:
         size: 1280, 720
 
         Image:
-            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
             anim_delay: 0.02
             allow_stretch: True
             keep_ratio: False
@@ -272,7 +272,7 @@ WindowManager:
         size: 1280, 720
 
         Image:
-            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
             anim_delay: 0.02
             allow_stretch: True
             keep_ratio: False
@@ -322,7 +322,7 @@ WindowManager:
         size: 1280, 720
 
         Image:
-            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
             anim_delay: 0.02
             allow_stretch: True
             keep_ratio: False
@@ -365,7 +365,7 @@ WindowManager:
         size: 1280, 720
 
         Image:
-            source: '/home/dawid/TicTacToeGame/TicTacToeUpgdraded/Assets/SETTINGS.gif'
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
             anim_delay: 0.02
             allow_stretch: True
             keep_ratio: False
@@ -379,12 +379,16 @@ WindowManager:
             pos_hint: {'center_x': .5, 'center_y': .85}
 
         ButtonMenu:
+            id: bigger_screen
             text: '1920 x 1020'
             pos_hint: {'center_x': .5, 'center_y': .65}
+            on_release: root.resize_up()
 
         ButtonMenu:
+            id: regular_screen
             text: '1280 x 720'
             pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release: root.resize_to_normal()
 
         ButtonMenu:
             text: 'RETURN TO MAIN MENU'
