@@ -1,0 +1,31 @@
+<MainMenu>:
+    name: 'main_menu'
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source:'/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/MAIN SCREEN GRAPHIC NO ANIMATION ON BOARDS ON SIDES.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        ButtonMenu:
+            text: 'PLAY'
+            pos_hint: {'center_x': .5, 'center_y': .42}
+            on_release:
+                app.root.current = "play"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: 'SETTINGS'
+            pos_hint: {'center_x': .5, 'center_y': .27}
+            on_release:
+                app.root.current = "settings"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: 'ABOUT'
+            pos_hint: {'center_x': .5, 'center_y': .12}

@@ -1,0 +1,47 @@
+<StandardFlow>:
+    name: "standard_flow"
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        Label:
+            text: 'CHOOSE THE SIZE OF THE BOARD'
+            bold: True
+            font_size: 32
+            color: (0, 0, 0, 1)
+            pos_hint: {'center_x': .5, 'center_y': .85}
+
+        ButtonMenu:
+            text: '3 x 3'
+            pos_hint: {'center_x': .5, 'center_y': .65}
+            on_release:
+                app.root.current = "round_choice_three_dim"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: '4 x 4'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release:
+                app.root.current = "round_choice_four_dim"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: '5 x 5'
+            pos_hint: {'center_x': .5, 'center_y': .35}
+            on_release:
+                app.root.current = "round_choice_five_dim"
+                root.manager.transition.direction = "left"
+
+        NavigationButton:
+            text: "BACK"
+            on_release:
+                app.root.current = "play"
+                root.manager.transition.direction = "right"

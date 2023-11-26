@@ -1,0 +1,45 @@
+<ScreenSize>:
+    name: "screen_size"
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        Label:
+            text: 'SCREEN SIZE SETTINGS'
+            bold: True
+            font_size: 40.9
+            color: (0, 0, 0, 1)
+            pos_hint: {'center_x': .5, 'center_y': .85}
+
+        ButtonMenu:
+            id: bigger_screen
+            text: '1920 x 1020'
+            pos_hint: {'center_x': .5, 'center_y': .65}
+            on_release: root.resize_up()
+
+        ButtonMenu:
+            id: regular_screen
+            text: '1280 x 720'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release: root.resize_to_normal()
+
+        ButtonMenu:
+            text: 'RETURN TO MAIN MENU'
+            pos_hint: {'center_x': .5, 'center_y': .35}
+            on_release:
+                app.root.current = "main_menu"
+                root.manager.transition.direction = "right"
+
+        NavigationButton:
+            text: "BACK"
+            on_release:
+                app.root.current = "settings"
+                root.manager.transition.direction = "right"

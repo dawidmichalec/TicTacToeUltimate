@@ -1,0 +1,39 @@
+<SettingsScreen>:
+    name: "settings"
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        Label:
+            text: 'SETTINGS'
+            bold: True
+            font_size: 40.9
+            color: (0, 0, 0, 1)
+            pos_hint: {'center_x': .5, 'center_y': .85}
+
+        ButtonMenu:
+            id: sound_button
+            on_release: root.turn_the_sound_off_on()
+            text: 'SOUND ON'
+            pos_hint: {'center_x': .5, 'center_y': .65}
+
+        ButtonMenu:
+            text: 'SCREEN SIZE'
+            pos_hint: {'center_x': .5, 'center_y': .5}
+            on_release:
+                app.root.current = "screen_size"
+                root.manager.transition.direction = "left"
+
+        NavigationButton:
+            text: "BACK"
+            on_release:
+                app.root.current = "main_menu"
+                root.manager.transition.direction = "right"

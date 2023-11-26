@@ -1,48 +1,14 @@
 from kivy.app import App
 from kivy.lang.builder import Builder
-from kivy.properties import ListProperty
-from kivy.uix.button import Button
 from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.core.window import Window
-from kivymd.uix.behaviors.hover_behavior import HoverBehavior
-Window.size = (1280, 720)
+from KivyDesigns.main_menu.main_menu import MainMenu
+from KivyDesigns.template.template import HiddenButton, NavigationButton, ButtonMenu
+from KivyDesigns.play.play import Play
+from KivyDesigns.screen_size.screen_size import ScreenSize
+from KivyDesigns.settings.settings import SettingsScreen
+from KivyDesigns.standard_flow.standard_flow import StandardFlow
+from KivyDesigns.ultimate_flow.ultimate_flow import UltimateFlow
 
-
-class MainMenu(Screen):
-    pass
-
-
-class Play(Screen):
-    pass
-
-
-class SettingsScreen(Screen):
-
-    def turn_the_sound_off_on(self):
-        text = self.ids.sound_button.text
-
-        if text == 'SOUND ON':
-            self.ids.sound_button.text = 'SOUND OFF'
-        else:
-            self.ids.sound_button.text = 'SOUND ON'
-
-
-class ScreenSize(Screen):
-    def resize_up(self):
-        if Window.size != (1920, 1080):
-            Window.size = (1920, 1080)
-
-    def resize_to_normal(self):
-        if Window.size != (1280, 720):
-            Window.size = (1280, 720)
-
-
-class StandardFlow(Screen):
-    pass
-
-
-class UltimateFlow(Screen):
-    pass
 
 
 class RoundChoiceThreeDim(Screen):
@@ -61,30 +27,20 @@ class WindowManager(ScreenManager):
     pass
 
 
-class ButtonMenu(Button, HoverBehavior):
-    background = ListProperty((0, 0, 0, 1))
-    color = ListProperty((1, 1, 1, 1))
+class MainGameTrial(Screen):
 
-    def on_enter(self):
-        self.background = (1, 222/255, 89/255, 1)
-        self.color = (0, 0, 0, 1)
+    def disable(self):
 
-    def on_leave(self):
-        self.background = (0, 0, 0, 1)
-        self.color = (1, 1, 1, 1)
+        if self.ids.seven.disabled is False:
+            self.ids.seven.disabled = True
+            self.ids.seven.background_disabled_normal = \
+                '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Circle.png'
 
+        print("Button was clicked and disabled")
 
-class NavigationButton(Button, HoverBehavior):
-    background = ListProperty((0, 0, 0, 1))
-    color = ListProperty((1, 1, 1, 1))
-
-    def on_enter(self):
-        self.background = (1, 222/255, 89/255, 1)
-        self.color = (0, 0, 0, 1)
-
-    def on_leave(self):
-        self.background = (0, 0, 0, 1)
-        self.color = (1, 1, 1, 1)
+    def replace_an_image(self):
+        self.ids.round_box.source = \
+            '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Filled Round Box.png'
 
 
 class TicTacToeUltimateApp(App):

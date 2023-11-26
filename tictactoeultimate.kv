@@ -1,3 +1,12 @@
+#: include KivyDesigns/template/template.kv
+#: include KivyDesigns/play/play.kv
+#: include KivyDesigns/screen_size/screen_size.kv
+#: include KivyDesigns/settings/settings.kv
+#: include KivyDesigns/standard_flow/standard_flow.kv
+#: include KivyDesigns/ultimate_flow/ultimate_flow.kv
+#: include KivyDesigns/main_menu/main_menu.kv
+
+
 WindowManager:
     MainMenu:
     Play:
@@ -8,159 +17,7 @@ WindowManager:
     RoundChoiceFiveDim:
     SettingsScreen:
     ScreenSize:
-
-<MainMenu>:
-    name: 'main_menu'
-
-    FloatLayout:
-        orientation: 'horizontal'
-        size: 1280, 720
-
-        Image:
-            source:'/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/MAIN SCREEN GRAPHIC NO ANIMATION ON BOARDS ON SIDES.gif'
-            anim_delay: 0.02
-            allow_stretch: True
-            keep_ratio: False
-            keep_data: True
-
-        ButtonMenu:
-            text: 'PLAY'
-            pos_hint: {'center_x': .5, 'center_y': .42}
-            on_release:
-                app.root.current = "play"
-                root.manager.transition.direction = "left"
-
-        ButtonMenu:
-            text: 'SETTINGS'
-            pos_hint: {'center_x': .5, 'center_y': .27}
-            on_release:
-                app.root.current = "settings"
-                root.manager.transition.direction = "left"
-
-        ButtonMenu:
-            text: 'ABOUT'
-            pos_hint: {'center_x': .5, 'center_y': .12}
-
-
-<Play>:
-    name: "play"
-
-    FloatLayout:
-        orientation: 'horizontal'
-        size: 1280, 720
-
-        Image:
-            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
-            anim_delay: 0.02
-            allow_stretch: True
-            keep_ratio: False
-            keep_data: True
-
-        Label:
-            text: 'CHOOSE VERSION OF THE GAME'
-            bold: True
-            font_size: 32
-            color: (0, 0, 0, 1)
-            pos_hint: {'center_x': .5, 'center_y': .85}
-
-        ButtonMenu:
-            text: 'STANDARD'
-            pos_hint: {'center_x': .5, 'center_y': .65}
-            on_release:
-                app.root.current = "standard_flow"
-                root.manager.transition.direction = "left"
-
-        ButtonMenu:
-            text: 'ULTIMATE'
-            pos_hint: {'center_x': .5, 'center_y': .5}
-            on_release:
-                app.root.current = "ultimate_flow"
-                root.manager.transition.direction = "left"
-
-        NavigationButton:
-            text: "BACK"
-            on_release:
-                app.root.current = "main_menu"
-                root.manager.transition.direction = "right"
-
-
-<StandardFlow>:
-    name: "standard_flow"
-
-    FloatLayout:
-        orientation: 'horizontal'
-        size: 1280, 720
-
-        Image:
-            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
-            anim_delay: 0.02
-            allow_stretch: True
-            keep_ratio: False
-            keep_data: True
-
-        Label:
-            text: 'CHOOSE THE SIZE OF THE BOARD'
-            bold: True
-            font_size: 32
-            color: (0, 0, 0, 1)
-            pos_hint: {'center_x': .5, 'center_y': .85}
-
-        ButtonMenu:
-            text: '3 x 3'
-            pos_hint: {'center_x': .5, 'center_y': .65}
-            on_release:
-                app.root.current = "round_choice_three_dim"
-                root.manager.transition.direction = "left"
-
-        ButtonMenu:
-            text: '4 x 4'
-            pos_hint: {'center_x': .5, 'center_y': .5}
-            on_release:
-                app.root.current = "round_choice_four_dim"
-                root.manager.transition.direction = "left"
-
-        ButtonMenu:
-            text: '5 x 5'
-            pos_hint: {'center_x': .5, 'center_y': .35}
-            on_release:
-                app.root.current = "round_choice_five_dim"
-                root.manager.transition.direction = "left"
-
-        NavigationButton:
-            text: "BACK"
-            on_release:
-                app.root.current = "play"
-                root.manager.transition.direction = "right"
-
-
-
-<UltimateFlow>:
-    name: "ultimate_flow"
-
-    FloatLayout:
-        orientation: 'horizontal'
-        size: 1280, 720
-
-        Image:
-            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
-            anim_delay: 0.02
-            allow_stretch: True
-            keep_ratio: False
-            keep_data: True
-
-        Label:
-            text: 'TO BE ANNOUNCED'
-            bold: True
-            font_size: 32
-            color: (0, 0, 0, 1)
-            pos_hint: {'center_x': .5, 'center_y': .5}
-
-        NavigationButton:
-            text: "BACK"
-            on_release:
-                app.root.current = "play"
-                root.manager.transition.direction = "right"
-
+    MainGameTrial:
 
 
 <RoundChoiceThreeDim>:
@@ -314,142 +171,49 @@ WindowManager:
                 root.manager.transition.direction = "right"
 
 
-<SettingsScreen>:
-    name: "settings"
+
+
+<MainGameTrial>
+
+    name: 'main_game_three_dim'
 
     FloatLayout:
         orientation: 'horizontal'
         size: 1280, 720
 
         Image:
-            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
-            anim_delay: 0.02
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Main Board trial.png'
             allow_stretch: True
             keep_ratio: False
             keep_data: True
-
-        Label:
-            text: 'SETTINGS'
-            bold: True
-            font_size: 40.9
-            color: (0, 0, 0, 1)
-            pos_hint: {'center_x': .5, 'center_y': .85}
-
-        ButtonMenu:
-            id: sound_button
-            on_release: root.turn_the_sound_off_on()
-            text: 'SOUND ON'
-            pos_hint: {'center_x': .5, 'center_y': .65}
-
-        ButtonMenu:
-            text: 'SCREEN SIZE'
-            pos_hint: {'center_x': .5, 'center_y': .5}
-            on_release:
-                app.root.current = "screen_size"
-                root.manager.transition.direction = "left"
-
-        NavigationButton:
-            text: "BACK"
-            on_release:
-                app.root.current = "main_menu"
-                root.manager.transition.direction = "right"
-
-
-
-
-<ScreenSize>:
-    name: "screen_size"
-
-    FloatLayout:
-        orientation: 'horizontal'
-        size: 1280, 720
 
         Image:
-            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
-            anim_delay: 0.02
-            allow_stretch: True
-            keep_ratio: False
-            keep_data: True
+            id: round_box
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Empty Round Box.png'
+            size: 58, 58
+            pos_hint: {'center_x': .3, 'center_y': .5}
+            on_touch_down: root.replace_an_image()
 
-        Label:
-            text: 'SCREEN SIZE SETTINGS'
-            bold: True
-            font_size: 40.9
-            color: (0, 0, 0, 1)
-            pos_hint: {'center_x': .5, 'center_y': .85}
-
-        ButtonMenu:
-            id: bigger_screen
-            text: '1920 x 1020'
-            pos_hint: {'center_x': .5, 'center_y': .65}
-            on_release: root.resize_up()
-
-        ButtonMenu:
-            id: regular_screen
-            text: '1280 x 720'
-            pos_hint: {'center_x': .5, 'center_y': .5}
-            on_release: root.resize_to_normal()
-
-        ButtonMenu:
-            text: 'RETURN TO MAIN MENU'
-            pos_hint: {'center_x': .5, 'center_y': .35}
-            on_release:
-                app.root.current = "main_menu"
-                root.manager.transition.direction = "right"
-
-        NavigationButton:
-            text: "BACK"
-            on_release:
-                app.root.current = "settings"
-                root.manager.transition.direction = "right"
+        HiddenButton:
+            id: seven
+            pos_hint: {'center_x': .42, 'center_y': .72}
+            background_disabled_normal: ''
+            on_release: root.disable()
 
 
+        Button:
+            id: eight
+            size_hint: 0.075, 0.115
+            background_color: 0, 0, 0, 1
+            background_normal: ''
+            pos_hint: {'center_x': .503, 'center_y': .72}
 
-
-<ButtonMenu>
-    background_color: 0, 0, 0, 0
-    background_normal: ''
-    size_hint: 0.3, 0.11
-    font_size: 32
-    font_name: 'Roboto'
-    bold: True
-    canvas.before:
-        Color:
-            rgba: self.background
-        RoundedRectangle:
-            size: self.size
-            pos: self.pos
-            radius: [28]
-        Color:
-            rgba: (0, 0, 0, 1)  # separate color for line border
-        Line:
-            rounded_rectangle: (self.pos[0], self.pos[1], self.size[0], self.size[1], 28)
-            width: 2
-
-
-<NavigationButton>
-    background_color: 0, 0, 0, 0
-    background_normal: ''
-    size_hint: 0.07, 0.11
-    pos_hint: {'center_x': .25, 'center_y': .22}
-    font_size: 26
-    font_name: 'Roboto'
-    bold: True
-    canvas.before:
-        Color:
-            rgba: self.background
-        RoundedRectangle:
-            size: self.size
-            pos: self.pos
-            radius: [28]
-        Color:
-            rgba: (0, 0, 0, 1)  # separate color for line border
-        Line:
-            rounded_rectangle: (self.pos[0], self.pos[1], self.size[0], self.size[1], 28)
-            width: 2
-
-
-
+        Button:
+            id: nine
+            size_hint: 0.07, 0.11
+            background_color: 0, 0, 0, 1
+            background_normal: ''
+            pos_hint: {'center_x': .585, 'center_y': .72}
 
 
 

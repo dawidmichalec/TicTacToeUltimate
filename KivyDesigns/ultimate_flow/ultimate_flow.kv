@@ -1,0 +1,26 @@
+<UltimateFlow>:
+    name: "ultimate_flow"
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
+            anim_delay: 0.02
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+
+        Label:
+            text: 'TO BE ANNOUNCED'
+            bold: True
+            font_size: 32
+            color: (0, 0, 0, 1)
+            pos_hint: {'center_x': .5, 'center_y': .5}
+
+        NavigationButton:
+            text: "BACK"
+            on_release:
+                app.root.current = "play"
+                root.manager.transition.direction = "right"

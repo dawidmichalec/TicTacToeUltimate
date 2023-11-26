@@ -1,0 +1,45 @@
+<HiddenButton>
+    size_hint: 0.08, 0.12
+    background_normal: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Button Background.png'
+    disabled: False
+
+<NavigationButton>
+    background_color: 0, 0, 0, 0
+    background_normal: ''
+    size_hint: 0.07, 0.11
+    pos_hint: {'center_x': .25, 'center_y': .22}
+    font_size: 26
+    font_name: 'Roboto'
+    bold: True
+    canvas.before:
+        Color:
+            rgba: self.background
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [28]
+        Color:
+            rgba: (0, 0, 0, 1)  # separate color for line border
+        Line:
+            rounded_rectangle: (self.pos[0], self.pos[1], self.size[0], self.size[1], 28)
+            width: 2
+
+<ButtonMenu>
+    background_color: 0, 0, 0, 0
+    background_normal: ''
+    size_hint: 0.3, 0.11
+    font_size: 32
+    font_name: 'Roboto'
+    bold: True
+    canvas.before:
+        Color:
+            rgba: self.background
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [28]
+        Color:
+            rgba: (0, 0, 0, 1)  # separate color for line border
+        Line:
+            rounded_rectangle: (self.pos[0], self.pos[1], self.size[0], self.size[1], 28)
+            width: 2
