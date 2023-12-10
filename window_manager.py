@@ -1,0 +1,17 @@
+from kivy.uix.screenmanager import ScreenManager
+from KivyDesigns.final_round_animation.final_round_animation import FinalRoundAnimation
+from KivyDesigns.main_game_trial.main_game_trial import MainGameTrial
+from KivyDesigns.main_menu.main_menu import MainMenu
+from KivyDesigns.play.play import Play
+from KivyDesigns.round_choice_five_dim.round_choice_five_dim import RoundChoiceFiveDim
+from KivyDesigns.round_choice_four_dim.round_choice_four_dim import RoundChoiceFourDim
+from KivyDesigns.round_choice_three_dim.round_choice_three_dim import RoundChoiceThreeDim
+from KivyDesigns.screen_size.screen_size import ScreenSize
+from KivyDesigns.settings.settings import SettingsScreen
+from KivyDesigns.standard_flow.standard_flow import StandardFlow
+from KivyDesigns.template.template import HiddenButton, NavigationButton, ButtonMenu
+from KivyDesigns.ultimate_flow.ultimate_flow import UltimateFlow
+
+
+class WindowManager(ScreenManager):
+    pass

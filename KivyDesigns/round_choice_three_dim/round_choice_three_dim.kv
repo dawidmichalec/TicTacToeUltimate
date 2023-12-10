@@ -1,5 +1,5 @@
-<Play>:
-    name: "play"
+<RoundChoiceThreeDim>:
+    name: "round_choice_three_dim"
 
     FloatLayout:
         orientation: 'horizontal'
@@ -13,28 +13,36 @@
             keep_data: True
 
         Label:
-            text: 'CHOOSE VERSION OF THE GAME'
+            text: 'UP TO HOW MANY WON ROUNDS\nWOULD YOU LIKE TO PLAY?'
+            halign: 'center'
             bold: True
             font_size: 32
             color: (0, 0, 0, 1)
             pos_hint: {'center_x': .5, 'center_y': .85}
 
         ButtonMenu:
-            text: 'STANDARD'
+            text: '1 ROUND'
             pos_hint: {'center_x': .5, 'center_y': .65}
             on_release:
-                app.root.current = "standard_flow"
+                app.root.current = "main_game_trial"
                 root.manager.transition.direction = "left"
 
         ButtonMenu:
-            text: 'ULTIMATE'
+            text: '2 ROUNDS'
             pos_hint: {'center_x': .5, 'center_y': .5}
             on_release:
-                app.root.current = "ultimate_flow"
+                app.root.current = "main_game_three_dim"
+                root.manager.transition.direction = "left"
+
+        ButtonMenu:
+            text: '3 ROUNDS'
+            pos_hint: {'center_x': .5, 'center_y': .35}
+            on_release:
+                app.root.current = "main_game_three_dim"
                 root.manager.transition.direction = "left"
 
         NavigationButton:
             text: "BACK"
             on_release:
-                app.root.current = "main_menu"
+                app.root.current = "standard_flow"
                 root.manager.transition.direction = "right"

@@ -31,3 +31,7 @@ class NavigationButton(Button, HoverBehavior):
 
 class HiddenButton(Button):
     pass
+
+
+class HamburgerButton(Button):
+    pass

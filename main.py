@@ -1,9 +1,21 @@
-from Scoreboard.Scoreboard import Scoreboard
+from kivymd.app import MDApp
+from kivy.lang.builder import Builder
+from window_manager import WindowManager
 from MatchManagers.MatchManagerStandard.MatchManagerStandard import MatchManagerStandard as Mms
-from PlaygroundManagers.PlaygroundManagerStandard.PlaygroundManagerStandard import Playground
 from RoundManagers.RoundManagerStandard.RoundManagerStandard import RoundManagerStandard as Rms
+from Scoreboard.Scoreboard import Scoreboard
+from PlaygroundManagers.PlaygroundManagerStandard.PlaygroundManagerStandard import Playground
 
 
+class TicTacToeUltimateApp(MDApp):
+    def build(self):
+        Builder.load_file('tictactoeultimate.kv')
+
+
+if __name__ == '__main__':
+    TicTacToeUltimateApp().run()
+
+"""
 start = True
 rms = Rms()
 mms = Mms()
@@ -30,4 +42,4 @@ while start and rms.number_of_rounds < rms.how_many_rounds and mms.is_match_over
     rms.round_result(p.playground)
     mms.is_match_over(rms.how_many_rounds, rms.circle_wins, rms.cross_wins)
     scoreboard.score(rms.circle_wins, rms.cross_wins)
-    rms.number_of_rounds += 1
+    rms.number_of_rounds += 1 """

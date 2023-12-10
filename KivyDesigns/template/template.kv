@@ -1,5 +1,7 @@
 <HiddenButton>
-    size_hint: 0.08, 0.12
+    size_hint: None, None
+    size: 82, 82
+    keep_ratio: False
     background_normal: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Button Background.png'
     disabled: False
 
@@ -43,3 +45,9 @@
         Line:
             rounded_rectangle: (self.pos[0], self.pos[1], self.size[0], self.size[1], 28)
             width: 2
+
+<HamburgerButton>
+    size : 95, 95
+    size_hint: None, None
+    pos_hint: {'center_x': .205, 'center_y': .19}
+    background_normal: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Burger Menu Forth.png'
