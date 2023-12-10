@@ -253,6 +253,7 @@ class MainGameTrial(Screen):
                 "viewclass": "OneLineListItem",
                 "text" : "SOUND ON",
                 "theme_text_color": "Custom",
+                "on_release": lambda x="SOUND ON": self.sound_off(menu_list[1]["text"]),
                 "text_color": [1, 1, 1, 1],
                 "text_style": "BUTTON",
                 "font_style": "H6"
@@ -271,10 +272,17 @@ class MainGameTrial(Screen):
         menu = MDDropdownMenu(
             caller=self.ids.burger_menu,
             items=menu_list,
-            width_mult=4.5,
+            width_mult=4.2,
             background_color=[0,0,0,1],
             radius=10
 
         )
 
         menu.open()
+
+    def sound_off(self, text_item):
+        if text_item == "SOUND ON":
+            text_item = "SOUND OFF"
+        else:
+            text_item = "SOUND ON"
+

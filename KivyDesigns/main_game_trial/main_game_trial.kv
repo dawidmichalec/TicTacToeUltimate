@@ -105,8 +105,8 @@
 <MyPopup@ModalView>
     size_hint: None, None
     background_color: 0, 0, 0, 1
-    size: 400, 200
-    auto_dismiss: True
+    size: 450, 250
+    auto_dismiss: False
     canvas.before:
         Color:
             rgba: root.background_color
@@ -119,20 +119,18 @@
         Label:
             text: "ARE YOU SURE YOU WANT TO EXIT?"
             font_name: 'Roboto'
+            font_size: 20
             bold: True
         BoxLayout:
             size_hint_y: 0.3
             ExitButton:
-                id : yes
                 text: "YES"
                 on_release:
                     app.root.current = "main_menu"
                     root.dismiss()
-                border: 20, 20, 20, 20
 
-            Button:
+            ExitButton:
                 text: "NO"
+                bold: True
                 on_release: root.dismiss()
-                border: 20, 20, 20, 20
 
-<ExitButton@Button>

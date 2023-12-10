@@ -51,3 +51,18 @@
     size_hint: None, None
     pos_hint: {'center_x': .205, 'center_y': .19}
     background_normal: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Burger Menu Forth.png'
+
+
+<ExitButton>
+    background_color: 0, 0, 0, 0
+    background_normal: ''
+    font_name: 'Roboto'
+    font_size: 18
+    bold: True
+    canvas.before:
+        Color:
+            rgba: self.background
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [20]

@@ -35,3 +35,16 @@ class HiddenButton(Button):
 
 class HamburgerButton(Button):
     pass
+
+
+class ExitButton(Button, HoverBehavior):
+    background = ListProperty((120/255, 120/255, 120/255, 1))
+    color = ListProperty((1, 1, 1, 1))
+
+    def on_enter(self):
+        self.background = (1, 222/255, 89/255, 1)
+        self.color = (0, 0, 0, 1)
+
+    def on_leave(self):
+        self.background = (120/255, 120/255, 120/255, 1)
+        self.color = (1, 1, 1, 1)
