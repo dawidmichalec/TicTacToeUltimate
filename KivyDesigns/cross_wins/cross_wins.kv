@@ -1,5 +1,5 @@
-<FinalRoundAnimation>:
-    name: 'final_round_animation'
+<CrossWins>:
+    name: "cross_wins"
 
     FloatLayout:
         orientation: 'horizontal'
@@ -7,16 +7,13 @@
 
         MyImage:
             id: gif
-            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Final Round Animation.gif'
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Cross Wins.gif'
             anim_delay: -1   # do not run the animation
             allow_stretch: True
             keep_ratio: False
             keep_data: True
             on_complete:
-                if self.complete: root.manager.current='one_round_three_dim'; \
+                if self.complete: root.manager.current='result'; \
                 self.anim_delay = -1; \
                 self.texture = self._coreimage.image.textures[0]
-                else: root.manager.current='final_round_animation'
-
-
-
+                else: root.manager.current='cross_wins'
