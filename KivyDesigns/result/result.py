@@ -7,13 +7,9 @@ from TicTacToeUltimate.KivyDesigns.one_round_three_dim.one_round_three_dim impor
 
 
 class Result(Screen):
+
     def on_enter(self):
         Factory.get('ResultPopup')().open()
-
-    def determine_winner(self):
-
-        print(self.circle_win)
-
 
 
 class ResultButton(Button, HoverBehavior):

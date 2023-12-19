@@ -4,7 +4,7 @@ from kivy.factory import Factory
 from kivy.app import App
 
 
-class OneRoundThreeDim(Screen):
+class TwoRoundsThreeDim(Screen):
 
     turn = "Circle"
     hidden_button = '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Button Background.png'
@@ -25,7 +25,6 @@ class OneRoundThreeDim(Screen):
     turn_count = 1
     circle_win = 0
     cross_win = 0
-    round = 1
 
     def on_enter(self):
 

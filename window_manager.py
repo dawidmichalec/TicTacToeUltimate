@@ -15,6 +15,10 @@ from KivyDesigns.circle_wins.circle_wins import CircleWins
 from KivyDesigns.cross_wins.cross_wins import CrossWins
 from KivyDesigns.result.result import Result
 from KivyDesigns.draw.draw import Draw
+from KivyDesigns.two_rounds_three_dim.two_rounds_three_dim import TwoRoundsThreeDim
+from KivyDesigns.round_one_animation.round_one_animation import RoundOneAnimation
+from KivyDesigns.round_one_anim_three_rounds.round_one_anim_three_rounds import RoundOneAnimThreeRounds
+from KivyDesigns.three_rounds_three_dim.three_rounds_three_dim import ThreeRoundsThreeDim
 
 
 class WindowManager(ScreenManager):

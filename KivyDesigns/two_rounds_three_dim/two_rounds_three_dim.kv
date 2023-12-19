@@ -1,0 +1,149 @@
+<TwoRoundsThreeDim>:
+
+    name: "two_rounds_three_dim"
+
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            id: board
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Three Dim Board.gif'
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+            anim_delay: 0.04
+
+        Image:
+            id: circle_turn
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Circle Turn Highlighted.png'
+            size: 120, 120
+            size_hint: None, None
+            keep_data: True
+            pos_hint: {'center_x': .203, 'center_y': .89}
+
+        Image:
+            id: cross_turn
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Cross Turn No Highlight.png'
+            size: 120, 120
+            size_hint: None, None
+            keep_data: True
+            pos_hint: {'center_x': .79, 'center_y': .89}
+
+
+        Image:
+            id: round_box_circle_one
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Empty Round Box.png'
+            size: 58, 58
+            pos_hint: {'center_x': .205, 'center_y': .665}
+
+        Image:
+            id: round_box_cross_one
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Empty Round Box.png'
+            size: 58, 58
+            pos_hint: {'center_x': .79, 'center_y': .665}
+
+        Image:
+            id: round_box_circle_two
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Empty Round Box.png'
+            size: 58, 58
+            pos_hint: {'center_x': .205, 'center_y': .570}
+
+        Image:
+            id: round_box_cross_two
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Empty Round Box.png'
+            size: 58, 58
+            pos_hint: {'center_x': .79, 'center_y': .570}
+
+        HiddenButton:
+            id: seven
+            pos_hint: {'center_x': .42, 'center_y': .72}
+            background_disabled_normal: ''
+            on_release: root.disable_and_check_win(seven)
+
+
+        HiddenButton:
+            id: eight
+            pos_hint: {'center_x': .5, 'center_y': .72}
+            background_disabled_normal: ''
+            on_release: root.disable_and_check_win(eight)
+
+        HiddenButton:
+            id: nine
+            pos_hint: {'center_x': .585, 'center_y': .72}
+            background_disabled_normal: ''
+            on_release: root.disable_and_check_win(nine)
+
+        HiddenButton:
+            id: four
+            pos_hint: {'center_x': .42, 'center_y': .59}
+            background_disabled_normal: ''
+            on_release: root.disable_and_check_win(four)
+
+        HiddenButton:
+            id: five
+            pos_hint: {'center_x': .5, 'center_y': .59}
+            background_disabled_normal: ''
+            on_release: root.disable_and_check_win(five)
+
+        HiddenButton:
+            id: six
+            pos_hint: {'center_x': .585, 'center_y': .59}
+            background_disabled_normal: ''
+            on_release: root.disable_and_check_win(six)
+
+        HiddenButton:
+            id: one
+            pos_hint: {'center_x': .42, 'center_y': .45}
+            background_disabled_normal: ''
+            on_release: root.disable_and_check_win(one)
+
+        HiddenButton:
+            id: two
+            pos_hint: {'center_x': .5, 'center_y': .45}
+            background_disabled_normal: ''
+            on_release: root.disable_and_check_win(two)
+
+        HiddenButton:
+            id: three
+            pos_hint: {'center_x': .585, 'center_y': .45}
+            background_disabled_normal: ''
+            on_release: root.disable_and_check_win(three)
+
+        HamburgerButton:
+            id: burger_menu
+            on_release: root.dropdown()
+
+
+<MyPopup@ModalView>
+    size_hint: None, None
+    background_color: 0, 0, 0, 1
+    size: 450, 250
+    auto_dismiss: False
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [20,]
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            text: "ARE YOU SURE YOU WANT TO EXIT?"
+            font_name: 'Roboto'
+            font_size: 20
+            bold: True
+        BoxLayout:
+            size_hint_y: 0.3
+            ExitButton:
+                text: "YES"
+                on_release:
+                    app.root.current = "main_menu"
+                    root.dismiss()
+
+            ExitButton:
+                text: "NO"
+                bold: True
+                on_release: root.dismiss()

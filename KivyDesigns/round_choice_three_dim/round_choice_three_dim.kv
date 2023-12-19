@@ -31,14 +31,14 @@
             text: '2 ROUNDS'
             pos_hint: {'center_x': .5, 'center_y': .5}
             on_release:
-                app.root.current = "main_game_three_dim"
+                app.root.current = "round_one_animation"
                 root.manager.transition.direction = "left"
 
         ButtonMenu:
             text: '3 ROUNDS'
             pos_hint: {'center_x': .5, 'center_y': .35}
             on_release:
-                app.root.current = "main_game_three_dim"
+                app.root.current = "round_one_anim_three_rounds"
                 root.manager.transition.direction = "left"
 
         NavigationButton:
