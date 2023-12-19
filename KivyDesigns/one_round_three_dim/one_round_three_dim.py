@@ -25,7 +25,6 @@ class OneRoundThreeDim(Screen):
     turn_count = 1
     circle_win = 0
     cross_win = 0
-    round = 1
 
     def on_enter(self):
 
@@ -38,7 +37,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.eight.background_disabled_normal\
                 == self.cross_path and self.ids.nine.background_disabled_normal == self.cross_path:
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
             return True
@@ -46,7 +44,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.four.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal\
                 == self.cross_path and self.ids.six.background_disabled_normal == self.cross_path:
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
             return True
@@ -54,7 +51,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.one.background_disabled_normal == self.cross_path and self.ids.two.background_disabled_normal\
                 == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
             return True
@@ -64,7 +60,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.four.background_disabled_normal\
                 == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
             return True
@@ -72,7 +67,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.eight.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal\
                 == self.cross_path and self.ids.two.background_disabled_normal == self.cross_path:
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
             return True
@@ -80,7 +74,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.six.background_disabled_normal\
                 == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
             return True
@@ -90,7 +83,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal\
             == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
             return True
@@ -98,7 +90,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal\
             == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
             return True
@@ -110,7 +101,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.eight.background_disabled_normal\
                 == self.circle_path and self.ids.nine.background_disabled_normal == self.circle_path:
             self.ids.round_box_circle_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.circle_win += 1
             App.get_running_app().root.current = 'circle_wins'
             return True
@@ -118,7 +108,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.four.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal\
                 == self.circle_path and self.ids.six.background_disabled_normal == self.circle_path:
             self.ids.round_box_circle_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.circle_win += 1
             App.get_running_app().root.current = 'circle_wins'
             return True
@@ -126,7 +115,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.one.background_disabled_normal == self.circle_path and self.ids.two.background_disabled_normal\
                 == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
             self.ids.round_box_circle_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.circle_win += 1
             App.get_running_app().root.current = 'circle_wins'
             return True
@@ -136,7 +124,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.four.background_disabled_normal\
                 == self.circle_path  and self.ids.one.background_disabled_normal == self.circle_path:
             self.ids.round_box_circle_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.circle_win += 1
             App.get_running_app().root.current = 'circle_wins'
             return True
@@ -144,7 +131,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.eight.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal\
                 == self.circle_path and self.ids.two.background_disabled_normal == self.circle_path:
             self.ids.round_box_circle_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.circle_win += 1
             App.get_running_app().root.current = 'circle_wins'
             return True
@@ -152,7 +138,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.six.background_disabled_normal\
                 == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
             self.ids.round_box_circle_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.circle_win += 1
             App.get_running_app().root.current = 'circle_wins'
             return True
@@ -162,7 +147,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal\
             == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
             self.ids.round_box_circle_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.circle_win += 1
             App.get_running_app().root.current = 'circle_wins'
             return True
@@ -170,7 +154,6 @@ class OneRoundThreeDim(Screen):
         if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal\
             == self.circle_path and self.ids.one.background_disabled_normal == self.circle_path:
             self.ids.round_box_circle_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
             self.circle_win += 1
             App.get_running_app().root.current = 'circle_wins'
             return True
@@ -204,43 +187,6 @@ class OneRoundThreeDim(Screen):
         self.check_win_cross()
         self.check_win_circle()
         self.announce_draw(self.turn_count, self.check_win_circle(), self.check_win_cross())
-
-    def disable_all_buttons(self):
-        if self.ids.seven.disabled is False:
-            self.ids.seven.disabled = True
-            self.ids.seven.background_disabled_normal = self.hidden_button
-
-        if self.ids.eight.disabled is False:
-            self.ids.eight.disabled = True
-            self.ids.eight.background_disabled_normal = self.hidden_button
-
-        if self.ids.nine.disabled is False:
-            self.ids.nine.disabled = True
-            self.ids.nine.background_disabled_normal = self.hidden_button
-
-        if self.ids.four.disabled is False:
-            self.ids.four.disabled = True
-            self.ids.four.background_disabled_normal = self.hidden_button
-
-        if self.ids.five.disabled is False:
-            self.ids.five.disabled = True
-            self.ids.five.background_disabled_normal = self.hidden_button
-
-        if self.ids.six.disabled is False:
-            self.ids.six.disabled = True
-            self.ids.six.background_disabled_normal = self.hidden_button
-
-        if self.ids.one.disabled is False:
-            self.ids.one.disabled = True
-            self.ids.one.background_disabled_normal = self.hidden_button
-
-        if self.ids.two.disabled is False:
-            self.ids.two.disabled = True
-            self.ids.two.background_disabled_normal = self.hidden_button
-
-        if self.ids.three.disabled is False:
-            self.ids.three.disabled = True
-            self.ids.three.background_disabled_normal = self.hidden_button
 
     def reset_playground(self):
 

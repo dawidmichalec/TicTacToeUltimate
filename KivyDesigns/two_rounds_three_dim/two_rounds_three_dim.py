@@ -25,22 +25,41 @@ class TwoRoundsThreeDim(Screen):
     turn_count = 1
     circle_win = 0
     cross_win = 0
+    round = 1
 
     def on_enter(self):
 
-        self.reset_rounds()
         self.reset_playground()
         return True
 
-    def check_win_cross(self):
+    def check_win_cross(self, round):
+
         # HORIZONTAL
+
         if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.eight.background_disabled_normal\
                 == self.cross_path and self.ids.nine.background_disabled_normal == self.cross_path:
-            self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.disable_all_buttons()
-            self.cross_win += 1
-            App.get_running_app().root.current = 'cross_wins'
-            return True
+            match round:
+                case 1:
+                    self.ids.round_box_cross_one.source = self.filled_round_box_path
+                    self.cross_win += 1
+                    App.get_running_app().root.current = 'two_cross_wins_round_two'
+                    return True
+                case 2:
+                    if self.cross_win == 0:
+                        self.ids.round_box_cross_one.source = self.filled_round_box_path
+                        self.cross_win += 1
+                        App.get_running_app().root.current = 'two_cross_wins_round_two'
+                        return True
+                    else:
+                        self.ids.round_box_cross_two.source = self.filled_round_box_path
+                        self.cross_win += 1
+                        App.get_running_app().root.current = 'cross_wins'
+                        return True
+                case 3:
+                    self.ids.round_box_cross_two.source = self.filled_round_box_path
+                    self.cross_win += 1
+                    App.get_running_app().root.current = 'cross_wins'
+                    return True
 
         if self.ids.four.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal\
                 == self.cross_path and self.ids.six.background_disabled_normal == self.cross_path:
@@ -200,7 +219,7 @@ class TwoRoundsThreeDim(Screen):
             self.turn_count += 1
             self.turn = "Circle"
 
-        self.check_win_cross()
+        self.check_win_cross(self.round)
         self.check_win_circle()
         self.announce_draw(self.turn_count, self.check_win_circle(), self.check_win_cross())
 
@@ -268,7 +287,7 @@ class TwoRoundsThreeDim(Screen):
         self.ids.two.background_disabled_normal = ''
         self.ids.three.background_disabled_normal = ''
 
-    def reset_rounds(self):
+    def reset_rounds(self):  # ADD ON THE END IF EITHER A CIRCLE OR CROSS WINS OTHERWISE IT DOESN'T MAKE SENSE
 
         self.ids.round_box_circle_one.source = self.empty_round_box_path
         self.ids.round_box_cross_one.source = self.empty_round_box_path
