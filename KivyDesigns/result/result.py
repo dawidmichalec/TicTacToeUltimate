@@ -4,12 +4,26 @@ from kivymd.uix.behaviors.hover_behavior import HoverBehavior
 from kivy.uix.button import Button
 from kivy.properties import ListProperty
 from TicTacToeUltimate.KivyDesigns.one_round_three_dim.one_round_three_dim import OneRoundThreeDim
+from kivy.uix.modalview import ModalView
 
 
 class Result(Screen):
 
     def on_enter(self):
+
         Factory.get('ResultPopup')().open()
+
+
+class ResultPopup(ModalView):
+
+    def on_open(self):
+        one_round_three_dim = OneRoundThreeDim()
+        circle_score_one_dim = str(one_round_three_dim.check_win_circle())
+        cross_score_one_dim = str(one_round_three_dim.check_win_cross())
+        print(circle_score_one_dim)
+        print(cross_score_one_dim)
+        self.ids.circle_score.text = circle_score_one_dim
+        self.ids.cross_score.text = cross_score_one_dim
 
 
 class ResultButton(Button, HoverBehavior):
@@ -24,4 +38,3 @@ class ResultButton(Button, HoverBehavior):
     def on_leave(self):
         self.background = (120/255, 120/255, 120/255, 1)
         self.color = (1, 1, 1, 1)
-

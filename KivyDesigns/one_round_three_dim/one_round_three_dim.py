@@ -23,76 +23,74 @@ class OneRoundThreeDim(Screen):
     empty_round_box_path = \
         '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Standard/Icons/Empty Round Box.png'
     turn_count = 1
-    circle_win = 0
     cross_win = 0
+    circle_win = 0
 
     def on_enter(self):
 
+        self.cross_win = 0
+        self.circle_win = 0
         self.reset_rounds()
         self.reset_playground()
         return True
 
     def check_win_cross(self):
+
         # HORIZONTAL
         if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.eight.background_disabled_normal\
                 == self.cross_path and self.ids.nine.background_disabled_normal == self.cross_path:
+            self.cross_win  += 1
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
-            return True
 
         if self.ids.four.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal\
                 == self.cross_path and self.ids.six.background_disabled_normal == self.cross_path:
+            self.cross_win  += 1
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
-            return True
 
         if self.ids.one.background_disabled_normal == self.cross_path and self.ids.two.background_disabled_normal\
                 == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+            self.cross_win  += 1
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
-            return True
 
         # VERTICAL
 
         if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.four.background_disabled_normal\
                 == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
+            self.cross_win  += 1
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
-            return True
 
         if self.ids.eight.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal\
                 == self.cross_path and self.ids.two.background_disabled_normal == self.cross_path:
+            self.cross_win  += 1
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
-            return True
 
         if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.six.background_disabled_normal\
                 == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+            self.cross_win  += 1
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
-            return True
 
         # DIAGONAL
 
         if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal\
             == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+            self.cross_win  += 1
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
-            return True
 
         if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal\
             == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
+            self.cross_win  += 1
             self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.cross_win += 1
             App.get_running_app().root.current = 'cross_wins'
-            return True
+
+        print(self.cross_win)
+        return self.cross_win
 
     def check_win_circle(self):
 
@@ -100,63 +98,58 @@ class OneRoundThreeDim(Screen):
 
         if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.eight.background_disabled_normal\
                 == self.circle_path and self.ids.nine.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
+            self.ids.round_box_circle_one.source = self.filled_round_box_path
             App.get_running_app().root.current = 'circle_wins'
-            return True
 
         if self.ids.four.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal\
                 == self.circle_path and self.ids.six.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
+            self.ids.round_box_circle_one.source = self.filled_round_box_path
             App.get_running_app().root.current = 'circle_wins'
-            return True
 
         if self.ids.one.background_disabled_normal == self.circle_path and self.ids.two.background_disabled_normal\
                 == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
+            self.ids.round_box_circle_one.source = self.filled_round_box_path
             App.get_running_app().root.current = 'circle_wins'
-            return True
 
         # VERTICAL
 
         if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.four.background_disabled_normal\
                 == self.circle_path  and self.ids.one.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
+            self.ids.round_box_circle_one.source = self.filled_round_box_path
             App.get_running_app().root.current = 'circle_wins'
-            return True
 
         if self.ids.eight.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal\
                 == self.circle_path and self.ids.two.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
+            self.ids.round_box_circle_one.source = self.filled_round_box_path
             App.get_running_app().root.current = 'circle_wins'
-            return True
 
         if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.six.background_disabled_normal\
                 == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
+            self.ids.round_box_circle_one.source = self.filled_round_box_path
             App.get_running_app().root.current = 'circle_wins'
-            return True
 
         # DIAGONAL
 
         if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal\
             == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
+            self.ids.round_box_circle_one.source = self.filled_round_box_path
             App.get_running_app().root.current = 'circle_wins'
-            return True
 
         if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal\
             == self.circle_path and self.ids.one.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
+            self.ids.round_box_circle_one.source = self.filled_round_box_path
             App.get_running_app().root.current = 'circle_wins'
-            return True
+
+        print(self.circle_win)
+        return self.circle_win
 
     def announce_draw(self, turn_count, check_win_circle, check_win_cross):
         if turn_count == 10 and check_win_cross is not True and check_win_circle is not True:
