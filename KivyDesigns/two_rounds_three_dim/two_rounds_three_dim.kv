@@ -137,15 +137,13 @@
         BoxLayout:
             size_hint_y: 0.3
             ExitButton:
-                id: yes
                 text: "YES"
                 on_release:
                     app.root.current = "main_menu"
-                    app.root.get_screen('two_rounds_three_dim').function_to_trigger()
                     root.dismiss()
+                    app.root.get_screen('two_rounds_three_dim').function_to_trigger()
 
             ExitButton:
                 text: "NO"
                 bold: True
                 on_release: root.dismiss()
-
