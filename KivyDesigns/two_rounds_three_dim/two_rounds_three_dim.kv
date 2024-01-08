@@ -141,7 +141,7 @@
                 on_release:
                     app.root.current = "main_menu"
                     root.dismiss()
-                    app.root.get_screen('two_rounds_three_dim').function_to_trigger()
+                    app.root.get_screen('two_rounds_three_dim').reset_if_main_menu()
 
             ExitButton:
                 text: "NO"

@@ -27,8 +27,7 @@ class TwoRoundsThreeDim(Screen):
     cross_win = 0
     round = 1
 
-    def function_to_trigger(self):
-        print('I was triggered by yes button in the ModalView!')
+    def reset_if_main_menu(self):
         self.reset_rounds()
         self.reset_playground()
         self.round = 1
