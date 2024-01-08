@@ -1,6 +1,6 @@
 <TwoRoundsThreeDim>:
 
-    name: "two_rounds_three_dim"
+    name: 'two_rounds_three_dim'
 
 
     FloatLayout:
@@ -115,8 +115,6 @@
             id: burger_menu
             on_release: root.dropdown()
 
-
-
 <MyPopup@ModalView>
     size_hint: None, None
     background_color: 0, 0, 0, 1
@@ -139,9 +137,12 @@
         BoxLayout:
             size_hint_y: 0.3
             ExitButton:
+                id: yes
                 text: "YES"
                 on_release:
+                    app.root.current = "main_menu"
                     app.root.get_screen('two_rounds_three_dim').function_to_trigger()
+                    root.dismiss()
 
             ExitButton:
                 text: "NO"
