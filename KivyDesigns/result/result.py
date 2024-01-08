@@ -18,8 +18,10 @@ class ResultPopup(ModalView):
 
     def on_open(self):
         one_round_three_dim = OneRoundThreeDim()
-        circle_score_one_dim = str(one_round_three_dim.check_win_circle())
-        cross_score_one_dim = str(one_round_three_dim.check_win_cross())
+        ortd_check_win_cross = one_round_three_dim.check_win_cross()
+        ortd_check_win_circle = one_round_three_dim.check_win_circle()
+        circle_score_one_dim = str(one_round_three_dim.circle_wins(ortd_check_win_circle))
+        cross_score_one_dim = str(one_round_three_dim.cross_wins(ortd_check_win_cross ))
         print(circle_score_one_dim)
         print(cross_score_one_dim)
         self.ids.circle_score.text = circle_score_one_dim

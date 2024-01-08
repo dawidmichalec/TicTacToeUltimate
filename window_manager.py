@@ -1,3 +1,4 @@
+from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager
 from KivyDesigns.final_round_animation.final_round_animation import FinalRoundAnimation
 from KivyDesigns.one_round_three_dim.one_round_three_dim import OneRoundThreeDim
