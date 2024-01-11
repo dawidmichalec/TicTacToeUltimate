@@ -3,8 +3,8 @@ from kivy.factory import Factory
 from kivymd.uix.behaviors.hover_behavior import HoverBehavior
 from kivy.uix.button import Button
 from kivy.properties import ListProperty
-from TicTacToeUltimate.KivyDesigns.one_round_three_dim.one_round_three_dim import OneRoundThreeDim
 from kivy.uix.modalview import ModalView
+from kivy.app import App
 
 
 class Result(Screen):
@@ -17,13 +17,9 @@ class Result(Screen):
 class ResultPopup(ModalView):
 
     def on_open(self):
-        one_round_three_dim = OneRoundThreeDim()
-        ortd_check_win_cross = one_round_three_dim.check_win_cross()
-        ortd_check_win_circle = one_round_three_dim.check_win_circle()
-        circle_score_one_dim = str(one_round_three_dim.circle_wins(ortd_check_win_circle))
-        cross_score_one_dim = str(one_round_three_dim.cross_wins(ortd_check_win_cross ))
-        print(circle_score_one_dim)
-        print(cross_score_one_dim)
+
+        circle_score_one_dim = str(self.manager.get_screen('one_round_three_dim').circle_win)
+        cross_score_one_dim = str(self.manager.get_screen('one_round_three_dim').cross_win)
         self.ids.circle_score.text = circle_score_one_dim
         self.ids.cross_score.text = cross_score_one_dim
 

@@ -60,8 +60,7 @@ class TwoRoundsThreeDim(Screen):
         self.ids.round_box_cross_two.source = self.filled_round_box_path
         self.cross_win += 1
         self.reset_rounds()
-        self.cross_win = 0
-        self.circle_win = 0
+
         App.get_running_app().root.current = 'cross_wins'
         return True
 

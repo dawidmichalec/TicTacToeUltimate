@@ -1,5 +1,5 @@
-<RoundOneAnimThreeRounds>:
-    name: 'round_one_anim_three_rounds'
+<ThreeCircleWinsRoundThree>:
+    name: "three_circle_wins_round_three"
 
     FloatLayout:
         orientation: 'horizontal'
@@ -7,7 +7,7 @@
 
         MyImage:
             id: gif
-            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Animations/Round 1 Animation.gif'
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/Animations/circle_wins_round_three.gif'
             anim_delay: -1   # do not run the animation
             allow_stretch: True
             keep_ratio: False
@@ -16,7 +16,4 @@
                 if self.complete: root.manager.current='three_rounds_three_dim'; \
                 self.anim_delay = -1; \
                 self.texture = self._coreimage.image.textures[0]
-                else: root.manager.current='round_one_animation'
-
-
-
+                else: root.manager.current='three_circle_wins_round_three'
