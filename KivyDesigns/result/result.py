@@ -15,13 +15,7 @@ class Result(Screen):
 
 
 class ResultPopup(ModalView):
-
-    def on_open(self):
-
-        circle_score_one_dim = str(self.manager.get_screen('one_round_three_dim').circle_win)
-        cross_score_one_dim = str(self.manager.get_screen('one_round_three_dim').cross_win)
-        self.ids.circle_score.text = circle_score_one_dim
-        self.ids.cross_score.text = cross_score_one_dim
+    pass
 
 
 class ResultButton(Button, HoverBehavior):

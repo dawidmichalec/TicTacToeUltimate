@@ -25,24 +25,28 @@ class OneRoundThreeDim(Screen):
     turn_count = 1
     cross_win = 0
     circle_win = 0
+    str_cross_win = "0"
+    str_circle_win = "0"
 
     def circle_wins(self, check_win_circle):
         if check_win_circle is True:
             self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
-            print(self.circle_win)
-            return self.circle_win
+            self.str_circle_win = str(self.circle_win)
+            print(self.str_circle_win)
+            return self.str_circle_win
 
-        return 0
+        return self.str_circle_win
 
     def cross_wins(self, check_win_cross):
         if check_win_cross is True:
             self.ids.round_box_cross_one.source = self.filled_round_box_path
             self.cross_win += 1
-            print(self.cross_win)
-            return self.cross_win
+            self.str_cross_win = str(self.cross_win)
+            print(self.str_cross_win)
+            return self.str_cross_win
 
-        return 0
+        return self.str_cross_win
 
     def on_enter(self):
 
@@ -156,6 +160,8 @@ class OneRoundThreeDim(Screen):
             App.get_running_app().root.current = 'draw'
             self.circle_win += 1
             self.cross_win += 1
+            self.str_circle_win = str(self.circle_win)
+            self.str_cross_win = str(self.cross_win)
             return True
 
         return False
