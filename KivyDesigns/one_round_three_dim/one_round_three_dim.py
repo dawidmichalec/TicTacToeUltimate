@@ -33,7 +33,6 @@ class OneRoundThreeDim(Screen):
             self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
             self.str_circle_win = str(self.circle_win)
-            print(self.str_circle_win)
             return self.str_circle_win
 
         return self.str_circle_win
@@ -43,7 +42,6 @@ class OneRoundThreeDim(Screen):
             self.ids.round_box_cross_one.source = self.filled_round_box_path
             self.cross_win += 1
             self.str_cross_win = str(self.cross_win)
-            print(self.str_cross_win)
             return self.str_cross_win
 
         return self.str_cross_win
@@ -52,6 +50,10 @@ class OneRoundThreeDim(Screen):
 
         self.cross_win = 0
         self.circle_win = 0
+        self.str_cross_win = "0"
+        self.str_circle_win = "0"
+
+    def on_leave(self):
         self.reset_rounds()
         self.reset_playground()
         return True

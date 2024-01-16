@@ -4,13 +4,15 @@ from kivymd.uix.behaviors.hover_behavior import HoverBehavior
 from kivy.uix.button import Button
 from kivy.properties import ListProperty
 from kivy.uix.modalview import ModalView
+from kivy.app import App
 
 
-class Result(Screen):
+class ResultTwoRoundsThreeDim(Screen):
 
     def on_enter(self):
 
-        Factory.get('ResultPopup')().open()
+        Factory.get('ResultPopupTwo')().open()
+
 
 
 class ResultButton(Button, HoverBehavior):

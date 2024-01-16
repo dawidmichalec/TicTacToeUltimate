@@ -1,5 +1,5 @@
-<Result>
-    name: "result"
+<ResultTwoRoundsThreeDim>
+    name: "result_two_rounds_three_dim"
 
     FloatLayout:
         orientation: 'horizontal'
@@ -13,7 +13,7 @@
             keep_data: True
             anim_delay: 0.04
 
-<ResultPopup@ModalView>
+<ResultPopupTwo@ModalView>
     size_hint: None, None
     background_color: 0, 0, 0, 1
     size: 600, 300
@@ -28,7 +28,8 @@
     BoxLayout:
         orientation: "vertical"
         Label:
-            text: "RESULT"
+            id: result_label
+            text: "ARE YOU SURE YOU WANT TO EXIT?"
             font_name: 'Roboto'
             font_size: 20
             bold: True
@@ -46,14 +47,14 @@
         BoxLayout:
             Label:
                 id: circle_score
-                text: app.root.get_screen('one_round_three_dim').str_circle_win
+                text: app.root.get_screen('two_rounds_three_dim').str_circle_win
                 color: 1, 1, 1, 1
                 font_name: 'Roboto'
                 font_size: 20
                 bold: True
             Label:
                 id: cross_score
-                text: app.root.get_screen('one_round_three_dim').str_cross_win
+                text: app.root.get_screen('two_rounds_three_dim').str_cross_win
                 color: 1, 1, 1, 1
                 font_name: 'Roboto'
                 font_size: 20
@@ -76,7 +77,8 @@
                         pos: self.pos
                         radius: [20]
                 on_release:
-                    app.root.current = "one_round_three_dim"
+                    app.root.current = "two_rounds_three_dim"
+                    app.root.get_screen('two_rounds_three_dim').reset_if_main_menu()
                     root.dismiss()
 
             ResultButton:

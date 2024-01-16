@@ -26,6 +26,8 @@ class TwoRoundsThreeDim(Screen):
     circle_win = 0
     cross_win = 0
     round = 1
+    str_cross_win = "0"
+    str_circle_win = "0"
 
     def reset_if_main_menu(self):
         self.reset_rounds()
@@ -33,6 +35,8 @@ class TwoRoundsThreeDim(Screen):
         self.round = 1
         self.cross_win = 0
         self.circle_win = 0
+        self.str_circle_win = "0"
+        self.str_cross_win = "0"
 
     def on_enter(self):
         self.reset_playground()
@@ -43,7 +47,6 @@ class TwoRoundsThreeDim(Screen):
         self.cross_win += 1
         self.round += 1
         self.reset_playground()
-        print(self.round)
         App.get_running_app().root.current = 'two_cross_wins_round_two'
         return True
 
@@ -52,24 +55,23 @@ class TwoRoundsThreeDim(Screen):
         self.cross_win += 1
         self.round += 1
         self.reset_playground()
-        print(self.round)
         App.get_running_app().root.current = 'two_cross_wins_final_round'
         return True
 
     def cross_wins(self):
         self.ids.round_box_cross_two.source = self.filled_round_box_path
         self.cross_win += 1
-        self.reset_rounds()
-
-        App.get_running_app().root.current = 'cross_wins'
-        return True
+        self.round += 1
+        self.str_cross_win = str(self.cross_win)
+        print(self.str_cross_win)
+        App.get_running_app().root.current = 'two_cross_wins_the_match'
+        return self.str_cross_win
 
     def two_circle_wins_round_two(self):
         self.ids.round_box_circle_one.source = self.filled_round_box_path
         self.circle_win += 1
         self.round += 1
         self.reset_playground()
-        print(self.round)
         App.get_running_app().root.current = 'two_circle_wins_round_two'
         return True
 
@@ -78,17 +80,17 @@ class TwoRoundsThreeDim(Screen):
         self.circle_win += 1
         self.round += 1
         self.reset_playground()
-        print(self.round)
         App.get_running_app().root.current = 'two_circle_wins_final_round'
         return True
 
     def circle_wins(self):
         self.ids.round_box_circle_two.source = self.filled_round_box_path
         self.circle_win += 1
-        self.reset_rounds()
-
-        App.get_running_app().root.current = 'circle_wins'
-        return True
+        self.round += 1
+        self.str_circle_win = str(self.circle_win)
+        print(self.str_circle_win)
+        App.get_running_app().root.current = 'two_circle_wins_the_match'
+        return self.str_circle_win
 
     def check_win_cross(self, round):
 
