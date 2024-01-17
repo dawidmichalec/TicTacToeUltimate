@@ -45,6 +45,7 @@ class TwoRoundsThreeDim(Screen):
     def two_cross_wins_round_two(self):
         self.ids.round_box_cross_one.source = self.filled_round_box_path
         self.cross_win += 1
+        self.str_cross_win = str(self.cross_win)
         self.round += 1
         self.reset_playground()
         App.get_running_app().root.current = 'two_cross_wins_round_two'
@@ -53,6 +54,7 @@ class TwoRoundsThreeDim(Screen):
     def two_cross_wins_final_round(self):
         self.ids.round_box_cross_one.source = self.filled_round_box_path
         self.cross_win += 1
+        self.str_cross_win = str(self.cross_win)
         self.round += 1
         self.reset_playground()
         App.get_running_app().root.current = 'two_cross_wins_final_round'
@@ -63,13 +65,13 @@ class TwoRoundsThreeDim(Screen):
         self.cross_win += 1
         self.round += 1
         self.str_cross_win = str(self.cross_win)
-        print(self.str_cross_win)
         App.get_running_app().root.current = 'two_cross_wins_the_match'
         return self.str_cross_win
 
     def two_circle_wins_round_two(self):
         self.ids.round_box_circle_one.source = self.filled_round_box_path
         self.circle_win += 1
+        self.str_circle_win = str(self.circle_win)
         self.round += 1
         self.reset_playground()
         App.get_running_app().root.current = 'two_circle_wins_round_two'
@@ -78,6 +80,7 @@ class TwoRoundsThreeDim(Screen):
     def two_circle_wins_final_round(self):
         self.ids.round_box_circle_one.source = self.filled_round_box_path
         self.circle_win += 1
+        self.str_circle_win = str(self.circle_win)
         self.round += 1
         self.reset_playground()
         App.get_running_app().root.current = 'two_circle_wins_final_round'
@@ -88,7 +91,6 @@ class TwoRoundsThreeDim(Screen):
         self.circle_win += 1
         self.round += 1
         self.str_circle_win = str(self.circle_win)
-        print(self.str_circle_win)
         App.get_running_app().root.current = 'two_circle_wins_the_match'
         return self.str_circle_win
 
@@ -405,6 +407,8 @@ class TwoRoundsThreeDim(Screen):
                     self.round += 1
                     self.circle_win += 1
                     self.cross_win += 1
+                    self.str_cross_win = "2"
+                    self.str_circle_win = "2"
                     App.get_running_app().root.current = 'draw'
                     return True
 
@@ -427,8 +431,6 @@ class TwoRoundsThreeDim(Screen):
             self.turn_count += 1
             self.turn = "Circle"
 
-        self.check_win_cross(self.round)
-        self.check_win_circle(self.round)
         self.announce_draw(self.turn_count, self.check_win_circle(self.round), self.check_win_cross(self.round), self.round)
 
 
