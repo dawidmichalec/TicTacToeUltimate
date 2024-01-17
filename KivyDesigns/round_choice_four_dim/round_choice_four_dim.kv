@@ -24,21 +24,21 @@
             text: '1 ROUND'
             pos_hint: {'center_x': .5, 'center_y': .65}
             on_release:
-                app.root.current = "main_game_four_dim"
+                app.root.current = "one_round_four_dim_final_round"
                 root.manager.transition.direction = "left"
 
         ButtonMenu:
             text: '2 ROUNDS'
             pos_hint: {'center_x': .5, 'center_y': .5}
             on_release:
-                app.root.current = "main_game_four_dim"
+                app.root.current = "two_rounds_four_dim"
                 root.manager.transition.direction = "left"
 
         ButtonMenu:
             text: '3 ROUNDS'
             pos_hint: {'center_x': .5, 'center_y': .35}
             on_release:
-                app.root.current = "main_game_four_dim"
+                app.root.current = "three_rounds_four_dim"
                 root.manager.transition.direction = "left"
 
         NavigationButton:
