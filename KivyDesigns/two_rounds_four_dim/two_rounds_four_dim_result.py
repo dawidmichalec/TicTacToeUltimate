@@ -6,11 +6,11 @@ from kivy.properties import ListProperty
 from kivy.uix.modalview import ModalView
 
 
-class ResultTwoRoundsThreeDim(Screen):
+class TwoRoundsFourDimResult(Screen):
 
     def on_enter(self):
 
-        Factory.get('ResultPopupTwo')().open()
+        Factory.get('TwoRoundsFourDimResultPopup')().open()
 
 
 

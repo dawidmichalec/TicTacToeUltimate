@@ -96,7 +96,6 @@ class TwoRoundsThreeDim(Screen):
 
     def check_win_cross(self, round):
 
-        # HORIZONTAL
         match round:
             case 1:
 
@@ -409,7 +408,7 @@ class TwoRoundsThreeDim(Screen):
                     self.cross_win += 1
                     self.str_cross_win = "2"
                     self.str_circle_win = "2"
-                    App.get_running_app().root.current = 'draw'
+                    App.get_running_app().root.current = 'two_rounds_three_dim_draw'
                     return True
 
         return False

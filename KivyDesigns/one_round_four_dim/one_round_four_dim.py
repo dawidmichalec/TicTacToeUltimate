@@ -318,7 +318,7 @@ class OneRoundFourDim(Screen):
         return False
 
     def announce_draw(self, turn_count, check_win_circle, check_win_cross):
-        if turn_count == 10 and check_win_cross is not True and check_win_circle is not True:
+        if turn_count == 17 and check_win_cross is not True and check_win_circle is not True:
             App.get_running_app().root.current = 'one_round_four_dim_draw'
             self.circle_win += 1
             self.cross_win += 1
