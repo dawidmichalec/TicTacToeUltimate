@@ -1,0 +1,99 @@
+<OneRoundFiveDimResult>
+    name: "one_round_five_dim_result"
+
+    FloatLayout:
+        orientation: 'horizontal'
+        size: 1280, 720
+
+        Image:
+            id: board
+            source: '/home/dawid/TicTacToeGame/TicTacToeUltimate/Assets/SETTINGS.gif'
+            allow_stretch: True
+            keep_ratio: False
+            keep_data: True
+            anim_delay: 0.04
+
+<OneRoundFiveDimResultPopup@ModalView>
+    size_hint: None, None
+    background_color: 0, 0, 0, 1
+    size: 600, 300
+    auto_dismiss: False
+    canvas.before:
+        Color:
+            rgba: root.background_color
+        RoundedRectangle:
+            pos: self.pos
+            size: self.size
+            radius: [20,]
+    BoxLayout:
+        orientation: "vertical"
+        Label:
+            id: result_label
+            text: "ARE YOU SURE YOU WANT TO EXIT?"
+            font_name: 'Roboto'
+            font_size: 20
+            bold: True
+        BoxLayout:
+            Label:
+                text: "CIRCLE"
+                font_name: 'Roboto'
+                font_size: 20
+                bold: True
+            Label:
+                text: "CROSS"
+                font_name: 'Roboto'
+                font_size: 20
+                bold: True
+        BoxLayout:
+            Label:
+                id: circle_score
+                text: app.root.get_screen('one_round_five_dim').str_circle_win
+                color: 1, 1, 1, 1
+                font_name: 'Roboto'
+                font_size: 20
+                bold: True
+            Label:
+                id: cross_score
+                text: app.root.get_screen('one_round_five_dim').str_cross_win
+                color: 1, 1, 1, 1
+                font_name: 'Roboto'
+                font_size: 20
+                bold: True
+
+        BoxLayout:
+            orientation: "horizontal"
+            ResultButton:
+                background_color: 0, 0, 0, 0
+                background_normal: ''
+                font_name: 'Roboto'
+                font_size: 20
+                text: "REMATCH"
+                bold: True
+                canvas.before:
+                    Color:
+                        rgba: self.background
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [20]
+                on_release:
+                    app.root.current = "one_round_five_dim"
+                    root.dismiss()
+
+            ResultButton:
+                background_color: 0, 0, 0, 0
+                background_normal: ''
+                font_name: 'Roboto'
+                text: "RETURN TO MAIN MENU"
+                font_size: 18
+                bold: True
+                canvas.before:
+                    Color:
+                        rgba: self.background
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [20]
+                on_release:
+                    app.root.current = "main_menu"
+                    root.dismiss()
