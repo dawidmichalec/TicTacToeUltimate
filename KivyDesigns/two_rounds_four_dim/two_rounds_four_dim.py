@@ -207,56 +207,56 @@ class TwoRoundsFourDim(Screen):
 
                 if self.ids.fourteen.background_disabled_normal == self.cross_path and self.ids.fifteen.background_disabled_normal \
                         == self.cross_path and self.ids.sixteen.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.thirteen.background_disabled_normal == self.cross_path and self.ids.fourteen.background_disabled_normal \
                         == self.cross_path and self.ids.fifteen.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.ten.background_disabled_normal == self.cross_path and self.ids.eleven.background_disabled_normal \
                         == self.cross_path and self.ids.twelve.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.ten.background_disabled_normal \
                         == self.cross_path and self.ids.eleven.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win== 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.six.background_disabled_normal == self.cross_path and self.ids.seven.background_disabled_normal \
                         == self.cross_path and self.ids.eight.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.five.background_disabled_normal == self.cross_path and self.ids.six.background_disabled_normal \
                         == self.cross_path and self.ids.seven.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.two.background_disabled_normal == self.cross_path and self.ids.three.background_disabled_normal \
                         == self.cross_path and self.ids.four.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.one.background_disabled_normal == self.cross_path and self.ids.two.background_disabled_normal \
                         == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
@@ -265,56 +265,56 @@ class TwoRoundsFourDim(Screen):
 
                 if self.ids.thirteen.background_disabled_normal == self.cross_path and self.ids.nine.background_disabled_normal \
                         == self.cross_path and self.ids.five.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
                         == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.fourteen.background_disabled_normal == self.cross_path and self.ids.ten.background_disabled_normal \
                         == self.cross_path and self.ids.six.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.ten.background_disabled_normal == self.cross_path and self.ids.six.background_disabled_normal \
                         == self.cross_path and self.ids.two.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.fifteen.background_disabled_normal == self.cross_path and self.ids.eleven.background_disabled_normal \
                         == self.cross_path and self.ids.seven.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.eleven.background_disabled_normal == self.cross_path and self.ids.seven.background_disabled_normal \
                         == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.sixteen.background_disabled_normal == self.cross_path and self.ids.twelve.background_disabled_normal \
                         == self.cross_path and self.ids.eight.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.twelve.background_disabled_normal == self.cross_path and self.ids.eight.background_disabled_normal \
                         == self.cross_path and self.ids.four.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
@@ -323,56 +323,56 @@ class TwoRoundsFourDim(Screen):
 
                 if self.ids.thirteen.background_disabled_normal == self.cross_path and self.ids.ten.background_disabled_normal \
                         == self.cross_path and self.ids.seven.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.fourteen.background_disabled_normal == self.cross_path and self.ids.eleven.background_disabled_normal \
                         == self.cross_path and self.ids.eight.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.six.background_disabled_normal \
                         == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.ten.background_disabled_normal == self.cross_path and self.ids.seven.background_disabled_normal \
                         == self.cross_path and self.ids.four.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.twelve.background_disabled_normal == self.cross_path and self.ids.seven.background_disabled_normal \
                         == self.cross_path and self.ids.two.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.eleven.background_disabled_normal == self.cross_path and self.ids.six.background_disabled_normal \
                         == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.sixteen.background_disabled_normal == self.cross_path and self.ids.eleven.background_disabled_normal \
                         == self.cross_path and self.ids.six.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
 
                 if self.ids.fifteen.background_disabled_normal == self.cross_path and self.ids.ten.background_disabled_normal \
                         == self.cross_path and self.ids.five.background_disabled_normal == self.cross_path:
-                    if self.circle_win == 0:
+                    if self.cross_win == 0:
                         self.two_cross_wins_final_round()
                     else:
                         self.cross_wins()
@@ -958,7 +958,7 @@ class TwoRoundsFourDim(Screen):
         self.ids.three.background_disabled_normal = ''
         self.ids.four.background_disabled_normal = ''
 
-    def reset_rounds(self):  # ADD ON THE END IF EITHER A CIRCLE OR CROSS WINS OTHERWISE IT DOESN'T MAKE SENSE
+    def reset_rounds(self):
 
         self.ids.round_box_circle_one.source = self.empty_round_box_path
         self.ids.round_box_cross_one.source = self.empty_round_box_path
