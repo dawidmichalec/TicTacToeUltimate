@@ -192,8 +192,6 @@ class ThreeRoundsThreeDim(Screen):
             self.turn_count += 1
             self.turn = "Circle"
 
-        self.check_win_cross()
-        self.check_win_circle()
         self.announce_draw(self.turn_count, self.check_win_circle(), self.check_win_cross())
 
     def reset_playground(self):
