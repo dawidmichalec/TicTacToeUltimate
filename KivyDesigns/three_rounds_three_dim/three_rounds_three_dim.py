@@ -25,6 +25,9 @@ class ThreeRoundsThreeDim(Screen):
     turn_count = 1
     circle_win = 0
     cross_win = 0
+    round = 1
+    str_cross_win = "0"
+    str_circle_win = "0"
 
     def reset_if_main_menu(self):
         self.reset_rounds()
@@ -32,146 +35,694 @@ class ThreeRoundsThreeDim(Screen):
         self.round = 1
         self.cross_win = 0
         self.circle_win = 0
+        self.str_circle_win = "0"
+        self.str_cross_win = "0"
 
     def on_enter(self):
-
-        self.reset_rounds()
         self.reset_playground()
         return True
 
+    def three_cross_wins_round_two(self):
+        self.ids.round_box_cross_one.source = self.filled_round_box_path
+        self.cross_win += 1
+        self.round += 1
+        self.reset_playground()
+        App.get_running_app().root.current = 'three_cross_wins_round_two'
+        return True
 
-    def check_win_cross(self):
-        # HORIZONTAL
-        if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.eight.background_disabled_normal\
-                == self.cross_path and self.ids.nine.background_disabled_normal == self.cross_path:
+    def three_cross_wins_round_three(self):
+        if self.cross_win == 0:
             self.ids.round_box_cross_one.source = self.filled_round_box_path
             self.cross_win += 1
-            App.get_running_app().root.current = 'cross_wins'
+            self.round += 1
+            self.reset_playground()
+            App.get_running_app().root.current = 'three_cross_wins_round_three'
             return True
 
-        if self.ids.four.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal\
-                == self.cross_path and self.ids.six.background_disabled_normal == self.cross_path:
+        if self.cross_win == 1:
+            self.ids.round_box_cross_two.source = self.filled_round_box_path
+            self.cross_win += 1
+            self.round += 1
+            self.reset_playground()
+            App.get_running_app().root.current = 'three_cross_wins_round_three'
+            return True
+
+    def three_cross_wins_round_four(self):
+        if self.cross_win == 0:
             self.ids.round_box_cross_one.source = self.filled_round_box_path
             self.cross_win += 1
-            App.get_running_app().root.current = 'cross_wins'
+            self.round += 1
+            self.reset_playground()
+            App.get_running_app().root.current = 'three_cross_wins_round_four'
             return True
 
-        if self.ids.one.background_disabled_normal == self.cross_path and self.ids.two.background_disabled_normal\
-                == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
-            self.ids.round_box_cross_one.source = self.filled_round_box_path
+        if self.cross_win == 1:
+            self.ids.round_box_cross_two.source = self.filled_round_box_path
             self.cross_win += 1
-            App.get_running_app().root.current = 'cross_wins'
+            self.round += 1
+            self.reset_playground()
+            App.get_running_app().root.current = 'three_cross_wins_round_four'
             return True
 
-        # VERTICAL
-
-        if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.four.background_disabled_normal\
-                == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
-            self.ids.round_box_cross_one.source = self.filled_round_box_path
+    def three_cross_wins_final_round(self):
+        if self.cross_win == 1:
+            self.ids.round_box_cross_two.source = self.filled_round_box_path
             self.cross_win += 1
-            App.get_running_app().root.current = 'cross_wins'
+            self.round += 1
+            self.reset_playground()
+            App.get_running_app().root.current = 'three_cross_wins_final_round'
             return True
 
-        if self.ids.eight.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal\
-                == self.cross_path and self.ids.two.background_disabled_normal == self.cross_path:
-            self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.cross_win += 1
-            App.get_running_app().root.current = 'cross_wins'
-            return True
+    def cross_wins(self):
+        self.ids.round_box_cross_three.source = self.filled_round_box_path
+        self.cross_win += 1
+        self.round += 1
+        self.str_cross_win = str(self.cross_win)
+        App.get_running_app().root.current = 'three_cross_wins_the_match'
+        return self.str_cross_win
 
-        if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.six.background_disabled_normal\
-                == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
-            self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.cross_win += 1
-            App.get_running_app().root.current = 'cross_wins'
-            return True
+    def three_circle_wins_round_two(self):
+        self.ids.round_box_circle_one.source = self.filled_round_box_path
+        self.circle_win += 1
+        self.round += 1
+        self.reset_playground()
+        App.get_running_app().root.current = 'three_circle_wins_round_two'
+        return True
 
-        # DIAGONAL
-
-        if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal\
-            == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
-            self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.cross_win += 1
-            App.get_running_app().root.current = 'cross_wins'
-            return True
-
-        if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal\
-            == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
-            self.ids.round_box_cross_one.source = self.filled_round_box_path
-            self.cross_win += 1
-            App.get_running_app().root.current = 'cross_wins'
-            return True
-
-    def check_win_circle(self):
-
-        # HORIZONTAL
-
-        if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.eight.background_disabled_normal\
-                == self.circle_path and self.ids.nine.background_disabled_normal == self.circle_path:
+    def three_circle_wins_round_three(self):
+        if self.circle_win == 0:
             self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
-            App.get_running_app().root.current = 'circle_wins'
+            self.round += 1
+            self.reset_playground()
+            App.get_running_app().root.current = 'three_circle_wins_round_three'
             return True
 
-        if self.ids.four.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal\
-                == self.circle_path and self.ids.six.background_disabled_normal == self.circle_path:
+        if self.circle_win == 1:
+            self.ids.round_box_circle_two.source = self.filled_round_box_path
+            self.circle_win += 1
+            self.round += 1
+            self.reset_playground()
+            App.get_running_app().root.current = 'three_circle_wins_round_three'
+            return True
+
+    def three_circle_wins_round_four(self):
+        if self.circle_win == 0:
             self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
-            App.get_running_app().root.current = 'circle_wins'
+            self.round += 1
+            self.reset_playground()
+            App.get_running_app().root.current = 'three_circle_wins_round_four'
             return True
 
-        if self.ids.one.background_disabled_normal == self.circle_path and self.ids.two.background_disabled_normal\
-                == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
+        if self.circle_win == 1:
+            self.ids.round_box_circle_two.source = self.filled_round_box_path
             self.circle_win += 1
-            App.get_running_app().root.current = 'circle_wins'
+            self.round += 1
+            self.reset_playground()
+            App.get_running_app().root.current = 'three_circle_wins_round_four'
             return True
 
-        # VERTICAL
-
-        if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.four.background_disabled_normal\
-                == self.circle_path  and self.ids.one.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
+    def three_circle_wins_final_round(self):
+        if self.circle_win == 1:
+            self.ids.round_box_circle_two.source = self.filled_round_box_path
             self.circle_win += 1
-            App.get_running_app().root.current = 'circle_wins'
+            self.round += 1
+            self.reset_playground()
+            App.get_running_app().root.current = 'three_circle_wins_final_round'
             return True
 
-        if self.ids.eight.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal\
-                == self.circle_path and self.ids.two.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
-            self.circle_win += 1
-            App.get_running_app().root.current = 'circle_wins'
-            return True
+    def circle_wins(self):
+        self.ids.round_box_circle_three.source = self.filled_round_box_path
+        self.circle_win += 1
+        self.round += 1
+        self.str_circle_win = str(self.circle_win)
+        App.get_running_app().root.current = 'three_circle_wins_the_match'
+        return self.str_circle_win
 
-        if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.six.background_disabled_normal\
-                == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
-            self.circle_win += 1
-            App.get_running_app().root.current = 'circle_wins'
-            return True
 
-        # DIAGONAL
+    def check_win_cross(self, round):
 
-        if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal\
-            == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
-            self.circle_win += 1
-            App.get_running_app().root.current = 'circle_wins'
-            return True
+        match round:
+            case 1:
 
-        if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal\
-            == self.circle_path and self.ids.one.background_disabled_normal == self.circle_path:
-            self.ids.round_box_circle_one.source = self.filled_round_box_path
-            self.circle_win += 1
-            App.get_running_app().root.current = 'circle_wins'
-            return True
+                # HORIZONTAL
 
-    def announce_draw(self, turn_count, check_win_circle, check_win_cross):
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.eight.background_disabled_normal \
+                        == self.cross_path and self.ids.nine.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_two()
+
+                if self.ids.four.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.six.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_two()
+
+                if self.ids.one.background_disabled_normal == self.cross_path and self.ids.two.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_two()
+
+                # VERTICAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.four.background_disabled_normal \
+                        == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_two()
+
+                if self.ids.eight.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.two.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_two()
+
+                if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.six.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_two()
+
+                # DIAGONAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_two()
+
+                if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_two()
+            case 2:
+
+                # HORIZONTAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.eight.background_disabled_normal \
+                        == self.cross_path and self.ids.nine.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_three()
+
+                if self.ids.four.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.six.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_three()
+
+                if self.ids.one.background_disabled_normal == self.cross_path and self.ids.two.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_three()
+
+                # VERTICAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.four.background_disabled_normal \
+                        == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_three()
+
+                if self.ids.eight.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.two.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_three()
+
+                if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.six.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_three()
+
+                # DIAGONAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_three()
+
+                if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
+                    self.three_cross_wins_round_three()
+            case 3:
+
+                # HORIZONTAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.eight.background_disabled_normal \
+                        == self.cross_path and self.ids.nine.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_round_four()
+
+                if self.ids.four.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.six.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_round_four()
+
+                if self.ids.one.background_disabled_normal == self.cross_path and self.ids.two.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_round_four()
+
+                # VERTICAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.four.background_disabled_normal \
+                        == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_round_four()
+
+                if self.ids.eight.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.two.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_round_four()
+
+                if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.six.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_round_four()
+
+                # DIAGONAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_round_four()
+
+                if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_round_four()
+            case 4:
+
+                # HORIZONTAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.eight.background_disabled_normal \
+                        == self.cross_path and self.ids.nine.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_final_round()
+
+                if self.ids.four.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.six.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_final_round()
+
+                if self.ids.one.background_disabled_normal == self.cross_path and self.ids.two.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_final_round()
+
+                # VERTICAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.four.background_disabled_normal \
+                        == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_final_round()
+
+                if self.ids.eight.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.two.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_final_round()
+
+                if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.six.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_final_round()
+
+                # DIAGONAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_final_round()
+
+                if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
+                    if self.cross_win == 2:
+                        self.cross_wins()
+                    else:
+                        self.three_cross_wins_final_round()
+            case 5:
+
+                # HORIZONTAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.eight.background_disabled_normal \
+                        == self.cross_path and self.ids.nine.background_disabled_normal == self.cross_path:
+                    self.cross_wins()
+
+                if self.ids.four.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.six.background_disabled_normal == self.cross_path:
+                    self.cross_wins()
+
+                if self.ids.one.background_disabled_normal == self.cross_path and self.ids.two.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    self.cross_wins()
+
+                # VERTICAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.four.background_disabled_normal \
+                        == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
+                    self.cross_wins()
+
+                if self.ids.eight.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.two.background_disabled_normal == self.cross_path:
+                    self.cross_wins()
+
+                if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.six.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    self.cross_wins()
+
+                # DIAGONAL
+
+                if self.ids.seven.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.three.background_disabled_normal == self.cross_path:
+                    self.cross_wins()
+
+                if self.ids.nine.background_disabled_normal == self.cross_path and self.ids.five.background_disabled_normal \
+                        == self.cross_path and self.ids.one.background_disabled_normal == self.cross_path:
+                    self.cross_wins()
+
+    def check_win_circle(self, round):
+
+        match round:
+            case 1:
+
+                # HORIZONTAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.eight.background_disabled_normal \
+                        == self.circle_path and self.ids.nine.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_two()
+
+                if self.ids.four.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.six.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_two()
+
+                if self.ids.one.background_disabled_normal == self.circle_path and self.ids.two.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_two()
+
+                # VERTICAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.four.background_disabled_normal \
+                        == self.circle_path and self.ids.one.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_two()
+
+                if self.ids.eight.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.two.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_two()
+
+                if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.six.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_two()
+
+                # DIAGONAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_two()
+
+                if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.one.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_two()
+            case 2:
+
+                # HORIZONTAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.eight.background_disabled_normal \
+                        == self.circle_path and self.ids.nine.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_three()
+
+                if self.ids.four.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.six.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_three()
+
+                if self.ids.one.background_disabled_normal == self.circle_path and self.ids.two.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_three()
+
+                # VERTICAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.four.background_disabled_normal \
+                        == self.circle_path and self.ids.one.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_three()
+
+                if self.ids.eight.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.two.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_three()
+
+                if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.six.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_three()
+
+                # DIAGONAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_three()
+
+                if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.one.background_disabled_normal == self.circle_path:
+                    self.three_circle_wins_round_three()
+            case 3:
+
+                # HORIZONTAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.eight.background_disabled_normal \
+                        == self.circle_path and self.ids.nine.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_round_four()
+
+                if self.ids.four.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.six.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_round_four()
+
+                if self.ids.one.background_disabled_normal == self.circle_path and self.ids.two.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_round_four()
+
+                # VERTICAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.four.background_disabled_normal \
+                        == self.circle_path and self.ids.one.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_round_four()
+
+                if self.ids.eight.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.two.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_round_four()
+
+                if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.six.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_round_four()
+
+                # DIAGONAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_round_four()
+
+                if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.one.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_round_four()
+            case 4:
+
+                # HORIZONTAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.eight.background_disabled_normal \
+                        == self.circle_path and self.ids.nine.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_final_round()
+
+                if self.ids.four.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.six.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_final_round()
+
+                if self.ids.one.background_disabled_normal == self.circle_path and self.ids.two.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_final_round()
+
+                # VERTICAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.four.background_disabled_normal \
+                        == self.circle_path and self.ids.one.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_final_round()
+
+                if self.ids.eight.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.two.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_final_round()
+
+                if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.six.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_final_round()
+
+                # DIAGONAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_final_round()
+
+                if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.one.background_disabled_normal == self.circle_path:
+                    if self.circle_win == 2:
+                        self.circle_wins()
+                    else:
+                        self.three_circle_wins_final_round()
+            case 5:
+
+                # HORIZONTAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.eight.background_disabled_normal \
+                        == self.circle_path and self.ids.nine.background_disabled_normal == self.circle_path:
+                    self.circle_wins()
+
+                if self.ids.four.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.six.background_disabled_normal == self.circle_path:
+                    self.circle_wins()
+
+                if self.ids.one.background_disabled_normal == self.circle_path and self.ids.two.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    self.circle_wins()
+
+                # VERTICAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.four.background_disabled_normal \
+                        == self.circle_path and self.ids.one.background_disabled_normal == self.circle_path:
+                    self.circle_wins()
+
+                if self.ids.eight.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.two.background_disabled_normal == self.circle_path:
+                    self.circle_wins()
+
+                if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.six.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    self.circle_wins()
+
+                # DIAGONAL
+
+                if self.ids.seven.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.three.background_disabled_normal == self.circle_path:
+                    self.circle_wins()
+
+                if self.ids.nine.background_disabled_normal == self.circle_path and self.ids.five.background_disabled_normal \
+                        == self.circle_path and self.ids.one.background_disabled_normal == self.circle_path:
+                    self.circle_wins()
+
+    def announce_draw(self, turn_count, check_win_circle, check_win_cross, round):
         if turn_count == 10 and check_win_cross is not True and check_win_circle is not True:
-            App.get_running_app().root.current = 'draw'
-            self.circle_win += 1
-            self.cross_win += 1
-            return True
+            match round:
+                case 1:
+                    self.ids.round_box_circle_one.source = self.filled_round_box_path
+                    self.ids.round_box_cross_one.source = self.filled_round_box_path
+                    self.round += 2
+                    self.circle_win += 1
+                    self.cross_win += 1
+                    App.get_running_app().root.current = 'three_draw_round_three'
+                    return True
+                case 2:
+                    if self.circle_win == 1:
+                        self.ids.round_box_circle_two.source = self.filled_round_box_path
+                        self.ids.round_box_cross_one.source = self.filled_round_box_path
+                        self.round += 2
+                        self.circle_win += 1
+                        self.cross_win += 1
+                        App.get_running_app().root.current = 'three_draw_round_four'
+                        return True
+                    elif self.cross_win == 1:
+                        self.ids.round_box_circle_one.source = self.filled_round_box_path
+                        self.ids.round_box_cross_two.source = self.filled_round_box_path
+                        self.round += 2
+                        self.circle_win += 1
+                        self.cross_win += 1
+                        App.get_running_app().root.current = 'three_draw_round_four'
+                        return True
+                case 3:
+                    if self.circle_win == 1 and self.cross_win == 1:
+                        self.ids.round_box_circle_two.source = self.filled_round_box_path
+                        self.ids.round_box_cross_two.source = self.filled_round_box_path
+                        self.round += 2
+                        self.circle_win += 1
+                        self.cross_win += 1
+                        App.get_running_app().root.current = 'three_draw_final_round'
+                        return True
+                    elif self.circle_win == 2:
+                        self.ids.round_box_cross_one.source = self.filled_round_box_path
+                        self.cross_win += 1
+                        self.str_cross_win = str(self.cross_win)
+                        self.circle_wins()
+                    elif self.cross_win == 2:
+                        self.ids.round_box_circle_one.source = self.filled_round_box_path
+                        self.circle_win += 1
+                        self.str_circle_win = str(self.circle_win)
+                        self.cross_wins()
+                case 4:
+                    if self.circle_win == 2:
+                        self.ids.round_box_cross_two.source = self.filled_round_box_path
+                        self.cross_win += 1
+                        self.str_cross_win = str(self.cross_win)
+                        self.circle_wins()
+                    elif self.cross_wins == 2:
+                        self.ids.round_box_circle_two.source = self.filled_round_box_path
+                        self.circle_win += 1
+                        self.str_circle_win = str(self.circle_win)
+                        self.cross_wins()
+                case 5:
+                    self.ids.round_box_circle_three.source = self.filled_round_box_path
+                    self.ids.round_box_cross_three.source = self.filled_round_box_path
+                    self.round += 1
+                    self.circle_win += 1
+                    self.cross_win += 1
+                    self.str_cross_win = "3"
+                    self.str_circle_win = "3"
+                    App.get_running_app().root.current = 'three_rounds_three_dim_draw'
+                    return True
 
         return False
 
@@ -192,7 +743,7 @@ class ThreeRoundsThreeDim(Screen):
             self.turn_count += 1
             self.turn = "Circle"
 
-        self.announce_draw(self.turn_count, self.check_win_circle(), self.check_win_cross())
+        self.announce_draw(self.turn_count, self.check_win_circle(self.round), self.check_win_cross(self.round), self.round)
 
     def reset_playground(self):
 

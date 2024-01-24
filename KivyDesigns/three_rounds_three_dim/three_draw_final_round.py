@@ -3,7 +3,7 @@ from kivy.uix.image import Image
 from kivy.properties import BooleanProperty
 
 
-class ThreeCrossWinsRoundFive(Screen):
+class ThreeDrawFinalRound(Screen):
 
     def on_enter(self, *args):
         gif = self.ids.gif
@@ -28,4 +28,3 @@ class MyImage(Image):
         self.textures_used += 1
         if (self.textures_used + 1) == self.num_textures:
             self.complete = True
-

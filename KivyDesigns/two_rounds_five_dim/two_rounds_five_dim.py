@@ -45,7 +45,6 @@ class TwoRoundsFiveDim(Screen):
     def two_cross_wins_round_two(self):
         self.ids.round_box_cross_one.source = self.filled_round_box_path
         self.cross_win += 1
-        self.str_cross_win = str(self.cross_win)
         self.round += 1
         self.reset_playground()
         App.get_running_app().root.current = 'two_five_dim_cross_wins_round_two'
@@ -54,7 +53,6 @@ class TwoRoundsFiveDim(Screen):
     def two_cross_wins_final_round(self):
         self.ids.round_box_cross_one.source = self.filled_round_box_path
         self.cross_win += 1
-        self.str_cross_win = str(self.cross_win)
         self.round += 1
         self.reset_playground()
         App.get_running_app().root.current = 'two_five_dim_cross_wins_final_round'
@@ -71,7 +69,6 @@ class TwoRoundsFiveDim(Screen):
     def two_circle_wins_round_two(self):
         self.ids.round_box_circle_one.source = self.filled_round_box_path
         self.circle_win += 1
-        self.str_circle_win = str(self.circle_win)
         self.round += 1
         self.reset_playground()
         App.get_running_app().root.current = 'two_five_dim_circle_wins_round_two'
@@ -80,7 +77,6 @@ class TwoRoundsFiveDim(Screen):
     def two_circle_wins_final_round(self):
         self.ids.round_box_circle_one.source = self.filled_round_box_path
         self.circle_win += 1
-        self.str_circle_win = str(self.circle_win)
         self.round += 1
         self.reset_playground()
         App.get_running_app().root.current = 'two_five_dim_circle_wins_final_round'
@@ -2187,8 +2183,14 @@ class TwoRoundsFiveDim(Screen):
                     return True
                 case 2:
                     if self.circle_win == 1:
+                        self.ids.round_box_cross_one.source = self.filled_round_box_path
+                        self.cross_win += 1
+                        self.str_cross_win = str(self.cross_win)
                         self.circle_wins()
                     elif self.cross_win == 1:
+                        self.ids.round_box_circle_one.source = self.filled_round_box_path
+                        self.circle_win += 1
+                        self.str_circle_win = str(self.circle_win)
                         self.cross_wins()
                 case 3:
                     self.ids.round_box_circle_two.source = self.filled_round_box_path

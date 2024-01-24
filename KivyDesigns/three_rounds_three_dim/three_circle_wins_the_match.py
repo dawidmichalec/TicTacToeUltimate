@@ -3,7 +3,7 @@ from kivy.uix.image import Image
 from kivy.properties import BooleanProperty
 
 
-class ThreeDrawRoundFive(Screen):
+class ThreeCircleWinsTheMatch(Screen):
 
     def on_enter(self, *args):
         gif = self.ids.gif
