@@ -48,7 +48,7 @@ class TwoRoundsThreeDim(Screen):
         self.str_cross_win = str(self.cross_win)
         self.round += 1
         self.reset_playground()
-        App.get_running_app().root.current = 'two_cross_wins_round_two'
+        App.get_running_app().root.current = 'two_three_dim_cross_wins_round_two'
         return True
 
     def two_cross_wins_final_round(self):
