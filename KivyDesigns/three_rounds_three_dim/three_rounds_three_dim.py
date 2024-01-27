@@ -45,6 +45,7 @@ class ThreeRoundsThreeDim(Screen):
     def three_cross_wins_round_two(self):
         self.ids.round_box_cross_one.source = self.filled_round_box_path
         self.cross_win += 1
+        self.str_cross_win = str(self.cross_win)
         self.round += 1
         self.reset_playground()
         App.get_running_app().root.current = 'three_cross_wins_round_two'
@@ -54,6 +55,7 @@ class ThreeRoundsThreeDim(Screen):
         if self.cross_win == 0:
             self.ids.round_box_cross_one.source = self.filled_round_box_path
             self.cross_win += 1
+            self.str_cross_win = str(self.cross_win)
             self.round += 1
             self.reset_playground()
             App.get_running_app().root.current = 'three_cross_wins_round_three'
@@ -62,6 +64,7 @@ class ThreeRoundsThreeDim(Screen):
         if self.cross_win == 1:
             self.ids.round_box_cross_two.source = self.filled_round_box_path
             self.cross_win += 1
+            self.str_cross_win = str(self.cross_win)
             self.round += 1
             self.reset_playground()
             App.get_running_app().root.current = 'three_cross_wins_round_three'
@@ -71,6 +74,7 @@ class ThreeRoundsThreeDim(Screen):
         if self.cross_win == 0:
             self.ids.round_box_cross_one.source = self.filled_round_box_path
             self.cross_win += 1
+            self.str_cross_win = str(self.cross_win)
             self.round += 1
             self.reset_playground()
             App.get_running_app().root.current = 'three_cross_wins_round_four'
@@ -79,6 +83,7 @@ class ThreeRoundsThreeDim(Screen):
         if self.cross_win == 1:
             self.ids.round_box_cross_two.source = self.filled_round_box_path
             self.cross_win += 1
+            self.str_cross_win = str(self.cross_win)
             self.round += 1
             self.reset_playground()
             App.get_running_app().root.current = 'three_cross_wins_round_four'
@@ -88,6 +93,7 @@ class ThreeRoundsThreeDim(Screen):
         if self.cross_win == 1:
             self.ids.round_box_cross_two.source = self.filled_round_box_path
             self.cross_win += 1
+            self.str_cross_win = str(self.cross_win)
             self.round += 1
             self.reset_playground()
             App.get_running_app().root.current = 'three_cross_wins_final_round'
@@ -104,6 +110,7 @@ class ThreeRoundsThreeDim(Screen):
     def three_circle_wins_round_two(self):
         self.ids.round_box_circle_one.source = self.filled_round_box_path
         self.circle_win += 1
+        self.str_circle_win = str(self.circle_win)
         self.round += 1
         self.reset_playground()
         App.get_running_app().root.current = 'three_circle_wins_round_two'
@@ -113,6 +120,7 @@ class ThreeRoundsThreeDim(Screen):
         if self.circle_win == 0:
             self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
+            self.str_circle_win = str(self.circle_win)
             self.round += 1
             self.reset_playground()
             App.get_running_app().root.current = 'three_circle_wins_round_three'
@@ -121,6 +129,7 @@ class ThreeRoundsThreeDim(Screen):
         if self.circle_win == 1:
             self.ids.round_box_circle_two.source = self.filled_round_box_path
             self.circle_win += 1
+            self.str_circle_win = str(self.circle_win)
             self.round += 1
             self.reset_playground()
             App.get_running_app().root.current = 'three_circle_wins_round_three'
@@ -130,6 +139,7 @@ class ThreeRoundsThreeDim(Screen):
         if self.circle_win == 0:
             self.ids.round_box_circle_one.source = self.filled_round_box_path
             self.circle_win += 1
+            self.str_circle_win = str(self.circle_win)
             self.round += 1
             self.reset_playground()
             App.get_running_app().root.current = 'three_circle_wins_round_four'
@@ -138,6 +148,7 @@ class ThreeRoundsThreeDim(Screen):
         if self.circle_win == 1:
             self.ids.round_box_circle_two.source = self.filled_round_box_path
             self.circle_win += 1
+            self.str_circle_win = str(self.circle_win)
             self.round += 1
             self.reset_playground()
             App.get_running_app().root.current = 'three_circle_wins_round_four'
@@ -147,6 +158,7 @@ class ThreeRoundsThreeDim(Screen):
         if self.circle_win == 1:
             self.ids.round_box_circle_two.source = self.filled_round_box_path
             self.circle_win += 1
+            self.str_circle_win = str(self.circle_win)
             self.round += 1
             self.reset_playground()
             App.get_running_app().root.current = 'three_circle_wins_final_round'
@@ -796,7 +808,7 @@ class ThreeRoundsThreeDim(Screen):
             {
                 "viewclass": "OneLineListItem",
                 "text": "RETURN TO MAIN MENU",
-                "on_release": lambda x="RETURN TO MAIN MENU": [Factory.get('MyPopup')().open(), menu.dismiss()],
+                "on_release": lambda x="RETURN TO MAIN MENU": [Factory.get('ThreeRoundsThreeDimPopup')().open(), menu.dismiss()],
                 "theme_text_color": "Custom",
                 "text_color": [1, 1, 1, 1],
                 "text_style": "BUTTON",
