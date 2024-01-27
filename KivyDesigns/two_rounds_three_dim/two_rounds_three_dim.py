@@ -396,16 +396,18 @@ class TwoRoundsThreeDim(Screen):
                     App.get_running_app().root.current = 'two_draw_final_round'
                     return True
                 case 2:
-                    if self.circle_win == 1:
-                        self.ids.round_box_cross_one.source = self.filled_round_box_path
-                        self.cross_win += 1
-                        self.str_cross_win = str(self.cross_win)
-                        self.circle_wins()
-                    elif self.cross_win == 1:
-                        self.ids.round_box_circle_one.source = self.filled_round_box_path
-                        self.circle_win += 1
-                        self.str_circle_win = str(self.circle_win)
-                        self.cross_wins()
+                    if self.two_circle_wins_round_two() is not True:
+                        if self.circle_win == 1:
+                            print("Announce_draw_triggered! Case 2!")
+                            self.ids.round_box_cross_one.source = self.filled_round_box_path
+                            self.cross_win += 1
+                            self.str_cross_win = str(self.cross_win)
+                            self.circle_wins()
+                        elif self.cross_win == 1:
+                            self.ids.round_box_circle_one.source = self.filled_round_box_path
+                            self.circle_win += 1
+                            self.str_circle_win = str(self.circle_win)
+                            self.cross_wins()
                 case 3:
                     self.ids.round_box_circle_two.source = self.filled_round_box_path
                     self.ids.round_box_cross_two.source = self.filled_round_box_path

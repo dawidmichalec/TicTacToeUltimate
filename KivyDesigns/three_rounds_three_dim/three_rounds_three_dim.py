@@ -679,62 +679,66 @@ class ThreeRoundsThreeDim(Screen):
                     App.get_running_app().root.current = 'three_draw_round_three'
                     return True
                 case 2:
-                    if self.circle_win == 1:
-                        self.ids.round_box_circle_two.source = self.filled_round_box_path
-                        self.ids.round_box_cross_one.source = self.filled_round_box_path
-                        self.round += 2
-                        self.circle_win += 1
-                        self.cross_win += 1
-                        App.get_running_app().root.current = 'three_draw_round_four'
-                        return True
-                    elif self.cross_win == 1:
-                        self.ids.round_box_circle_one.source = self.filled_round_box_path
-                        self.ids.round_box_cross_two.source = self.filled_round_box_path
-                        self.round += 2
-                        self.circle_win += 1
-                        self.cross_win += 1
-                        App.get_running_app().root.current = 'three_draw_round_four'
-                        return True
+                    if self.three_circle_wins_round_two() is not True:
+                        if self.circle_win == 1:
+                            self.ids.round_box_circle_two.source = self.filled_round_box_path
+                            self.ids.round_box_cross_one.source = self.filled_round_box_path
+                            self.round += 2
+                            self.circle_win += 1
+                            self.cross_win += 1
+                            App.get_running_app().root.current = 'three_draw_round_four'
+                            return True
+                        elif self.cross_win == 1:
+                            self.ids.round_box_circle_one.source = self.filled_round_box_path
+                            self.ids.round_box_cross_two.source = self.filled_round_box_path
+                            self.round += 2
+                            self.circle_win += 1
+                            self.cross_win += 1
+                            App.get_running_app().root.current = 'three_draw_round_four'
+                            return True
                 case 3:
-                    if self.circle_win == 1 and self.cross_win == 1:
-                        self.ids.round_box_circle_two.source = self.filled_round_box_path
-                        self.ids.round_box_cross_two.source = self.filled_round_box_path
-                        self.round += 2
-                        self.circle_win += 1
-                        self.cross_win += 1
-                        App.get_running_app().root.current = 'three_draw_final_round'
-                        return True
-                    elif self.circle_win == 2:
-                        self.ids.round_box_cross_one.source = self.filled_round_box_path
-                        self.cross_win += 1
-                        self.str_cross_win = str(self.cross_win)
-                        self.circle_wins()
-                    elif self.cross_win == 2:
-                        self.ids.round_box_circle_one.source = self.filled_round_box_path
-                        self.circle_win += 1
-                        self.str_circle_win = str(self.circle_win)
-                        self.cross_wins()
+                    if self.three_circle_wins_round_three() is not True:
+                        if self.circle_win == 1 and self.cross_win == 1:
+                            self.ids.round_box_circle_two.source = self.filled_round_box_path
+                            self.ids.round_box_cross_two.source = self.filled_round_box_path
+                            self.round += 2
+                            self.circle_win += 1
+                            self.cross_win += 1
+                            App.get_running_app().root.current = 'three_draw_final_round'
+                            return True
+                        elif self.circle_win == 2:
+                            self.ids.round_box_cross_one.source = self.filled_round_box_path
+                            self.cross_win += 1
+                            self.str_cross_win = str(self.cross_win)
+                            self.circle_wins()
+                        elif self.cross_win == 2:
+                            self.ids.round_box_circle_one.source = self.filled_round_box_path
+                            self.circle_win += 1
+                            self.str_circle_win = str(self.circle_win)
+                            self.cross_wins()
                 case 4:
-                    if self.circle_win == 2:
-                        self.ids.round_box_cross_two.source = self.filled_round_box_path
-                        self.cross_win += 1
-                        self.str_cross_win = str(self.cross_win)
-                        self.circle_wins()
-                    elif self.cross_wins == 2:
-                        self.ids.round_box_circle_two.source = self.filled_round_box_path
-                        self.circle_win += 1
-                        self.str_circle_win = str(self.circle_win)
-                        self.cross_wins()
+                    if self.three_circle_wins_round_four() is not True:
+                        if self.circle_win == 2:
+                            self.ids.round_box_cross_two.source = self.filled_round_box_path
+                            self.cross_win += 1
+                            self.str_cross_win = str(self.cross_win)
+                            self.circle_wins()
+                        elif self.cross_wins == 2:
+                            self.ids.round_box_circle_two.source = self.filled_round_box_path
+                            self.circle_win += 1
+                            self.str_circle_win = str(self.circle_win)
+                            self.cross_wins()
                 case 5:
-                    self.ids.round_box_circle_three.source = self.filled_round_box_path
-                    self.ids.round_box_cross_three.source = self.filled_round_box_path
-                    self.round += 1
-                    self.circle_win += 1
-                    self.cross_win += 1
-                    self.str_cross_win = "3"
-                    self.str_circle_win = "3"
-                    App.get_running_app().root.current = 'three_rounds_three_dim_draw'
-                    return True
+                    if self.three_circle_wins_final_round() is not True:
+                        self.ids.round_box_circle_three.source = self.filled_round_box_path
+                        self.ids.round_box_cross_three.source = self.filled_round_box_path
+                        self.round += 1
+                        self.circle_win += 1
+                        self.cross_win += 1
+                        self.str_cross_win = "3"
+                        self.str_circle_win = "3"
+                        App.get_running_app().root.current = 'three_rounds_three_dim_draw'
+                        return True
 
         return False
 
