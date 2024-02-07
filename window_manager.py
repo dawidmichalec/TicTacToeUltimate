@@ -111,6 +111,8 @@ from KivyDesigns.three_rounds_five_dim.three_rounds_five_dim_draw import ThreeRo
 from KivyDesigns.three_rounds_five_dim.three_rounds_five_dim_result import ThreeRoundsFiveDimResult
 from KivyDesigns.three_rounds_five_dim.three_rounds_five_dim_round_one import ThreeRoundsFiveDimRoundOne
 from KivyDesigns.three_rounds_five_dim.three_rounds_five_dim import ThreeRoundsFiveDim
+from KivyDesigns.ultimate_flow.ultimate_power_ups_explanation import UltimatePowerUpsExplanation
+from KivyDesigns.ultimate_flow.bomb_presentation import BombPresentation
 
 class WindowManager(ScreenManager):
     pass

@@ -1,5 +1,5 @@
-<UltimateFlow>:
-    name: "ultimate_flow"
+<UltimatePowerUpsExplanation>:
+    name: "ultimate_power_ups_explanation"
 
     FloatLayout:
         orientation: 'horizontal'
@@ -14,7 +14,8 @@
 
         Label:
             text:
-                'In the ultimate mode you can only play on 5x5 board.\n\n           Game is played up to three won rounds.\n\n     Click on the \"Continue\" button to move further.'
+                ' Ultimate mode is a good old tic-tac-toe with a little twist.\n\nEach player can use up to three power-ups.\n\nPower-ups are given at the beginning of the match.\n\nEach power-up can be used only once.\n\nRemember to use them wisely!'
+            halign: 'center'
             font_size: 23
             bold: True
             color: (0, 0, 0, 1)
@@ -24,13 +25,12 @@
             text: 'CONTINUE'
             pos_hint: {'center_x': .5, 'center_y': .4}
             on_release:
-                app.root.current = "ultimate_power_ups_explanation"
+                app.root.current = "bomb_presentation"
                 root.manager.transition.direction = "left"
-
 
         NavigationButton:
             text: "BACK"
             pos_hint: {'center_x': .2, 'center_y': .22}
             on_release:
-                app.root.current = "play"
+                app.root.current = "ultimate_flow"
                 root.manager.transition.direction = "right"
